@@ -49,8 +49,21 @@ func UpdateUI():
 	else:
 		texture = load("res://Art/CardFront.svg")
 		SetValueImage()
+		SetSuitImage()
 
+func SetSuitImage():
+	var suitImage : Texture
+	if Suit == SUIT.DIAMONDS:
+		suitImage = load("res://Art/Card_Diamond.svg")
+	elif Suit == SUIT.HEARTS:
+		suitImage = load("res://Art/Card_Heart.svg")
+	elif Suit == SUIT.CLUBS:
+		suitImage = load("res://Art/Card_Club.svg")
+	elif Suit == SUIT.SPADES:
+		suitImage = load("res://Art/Card_Spade.svg")
 
+	for image in SuitImages:
+		image.texture = suitImage
 func SetValueImage():
 	var valueImage : Texture
 	if Value == VALUE.ACE:

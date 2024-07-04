@@ -1,11 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqf5y4qlgaind"]
+[gd_scene load_steps=3 format=3 uid="uid://cqf5y4qlgaind"]
 
 [ext_resource type="PackedScene" uid="uid://c2ufyusl0pd62" path="res://Prefab/Card.tscn" id="1_wbeyc"]
+[ext_resource type="Texture2D" uid="uid://dck4esv8gcl28" path="res://Art/CardBack.svg" id="2_yeq0j"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Card" parent="." instance=ExtResource("1_wbeyc")]
 position = Vector2(106, 139)
+
+[node name="Card53" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(109, -125)
+texture = ExtResource("2_yeq0j")
+bShowBack = true
 
 [node name="Card2" parent="." instance=ExtResource("1_wbeyc")]
 position = Vector2(307, 139)
@@ -16,7 +22,7 @@ position = Vector2(506, 139)
 Value = 2
 
 [node name="Card4" parent="." instance=ExtResource("1_wbeyc")]
-position = Vector2(712, 139)
+position = Vector2(701, 140)
 Value = 3
 
 [node name="Card5" parent="." instance=ExtResource("1_wbeyc")]
@@ -54,3 +60,195 @@ Value = 11
 [node name="Card13" parent="." instance=ExtResource("1_wbeyc")]
 position = Vector2(2603, 139)
 Value = 12
+
+[node name="Card14" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(113.5, 422.5)
+Suit = 1
+
+[node name="Card15" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(314.5, 422.5)
+Value = 1
+Suit = 1
+
+[node name="Card16" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(513.5, 422.5)
+Value = 2
+Suit = 1
+
+[node name="Card17" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(708.5, 423.5)
+Value = 3
+Suit = 1
+
+[node name="Card18" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(932.5, 422.5)
+Value = 4
+Suit = 1
+
+[node name="Card19" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(1141.5, 422.5)
+Value = 5
+Suit = 1
+
+[node name="Card20" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(1345.5, 422.5)
+Value = 6
+Suit = 1
+
+[node name="Card21" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(1555.5, 422.5)
+Value = 7
+Suit = 1
+
+[node name="Card22" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(1763.5, 422.5)
+Value = 8
+Suit = 1
+
+[node name="Card23" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(1969.5, 422.5)
+Value = 9
+Suit = 1
+
+[node name="Card24" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(2186.5, 422.5)
+Value = 10
+Suit = 1
+
+[node name="Card25" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(2394.5, 422.5)
+Value = 11
+Suit = 1
+
+[node name="Card26" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(2610.5, 422.5)
+Value = 12
+Suit = 1
+
+[node name="Card27" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(120.5, 713.5)
+Suit = 2
+
+[node name="Card28" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(321.5, 713.5)
+Value = 1
+Suit = 2
+
+[node name="Card29" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(520.5, 713.5)
+Value = 2
+Suit = 2
+
+[node name="Card30" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(715.5, 714.5)
+Value = 3
+Suit = 2
+
+[node name="Card31" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(939.5, 713.5)
+Value = 4
+Suit = 2
+
+[node name="Card32" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(1148.5, 713.5)
+Value = 5
+Suit = 2
+
+[node name="Card33" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(1352.5, 713.5)
+Value = 6
+Suit = 2
+
+[node name="Card34" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(1562.5, 713.5)
+Value = 7
+Suit = 2
+
+[node name="Card35" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(1770.5, 713.5)
+Value = 8
+Suit = 2
+
+[node name="Card36" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(1976.5, 713.5)
+Value = 9
+Suit = 2
+
+[node name="Card37" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(2193.5, 713.5)
+Value = 10
+Suit = 2
+
+[node name="Card38" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(2401.5, 713.5)
+Value = 11
+Suit = 2
+
+[node name="Card39" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(2617.5, 713.5)
+Value = 12
+Suit = 2
+
+[node name="Card40" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(128.5, 1001.5)
+Suit = 3
+
+[node name="Card41" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(329.5, 1001.5)
+Value = 1
+Suit = 3
+
+[node name="Card42" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(528.5, 1001.5)
+Value = 2
+Suit = 3
+
+[node name="Card43" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(723.5, 1002.5)
+Value = 3
+Suit = 3
+
+[node name="Card44" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(947.5, 1001.5)
+Value = 4
+Suit = 3
+
+[node name="Card45" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(1156.5, 1001.5)
+Value = 5
+Suit = 3
+
+[node name="Card46" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(1360.5, 1001.5)
+Value = 6
+Suit = 3
+
+[node name="Card47" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(1570.5, 1001.5)
+Value = 7
+Suit = 3
+
+[node name="Card48" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(1778.5, 1001.5)
+Value = 8
+Suit = 3
+
+[node name="Card49" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(1984.5, 1001.5)
+Value = 9
+Suit = 3
+
+[node name="Card50" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(2201.5, 1001.5)
+Value = 10
+Suit = 3
+
+[node name="Card51" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(2409.5, 1001.5)
+Value = 11
+Suit = 3
+
+[node name="Card52" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(2625.5, 1001.5)
+Value = 12
+Suit = 3
