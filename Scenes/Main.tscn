@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c2ufyusl0pd62" path="res://Prefab/Card.tscn" id="1_3gkwr"]
 [ext_resource type="Texture2D" uid="uid://dck4esv8gcl28" path="res://Art/CardBack.svg" id="2_4j7v6"]
-[ext_resource type="Texture2D" uid="uid://bl2kjrw3fwncu" path="res://Art/DeckHolder.svg" id="3_7bysq"]
+[ext_resource type="PackedScene" uid="uid://cgmjkyqjgb5at" path="res://Prefab/Deck.tscn" id="3_618xt"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(298, 942)
@@ -56,20 +56,9 @@ position = Vector2(-257.5, 395.5)
 texture = ExtResource("2_4j7v6")
 bShowBack = true
 
-[node name="Deck" type="Sprite2D" parent="."]
-position = Vector2(777, 0)
-texture = ExtResource("3_7bysq")
-metadata/_edit_group_ = true
-
-[node name="Card" parent="Deck" instance=ExtResource("1_3gkwr")]
+[node name="Card6" parent="." instance=ExtResource("1_3gkwr")]
+position = Vector2(777, -5)
 texture = ExtResource("2_4j7v6")
 bShowBack = true
 
-[node name="Label" type="Label" parent="Deck"]
-offset_left = -22.0
-offset_top = 145.0
-offset_right = 36.0
-offset_bottom = 214.0
-theme_override_font_sizes/font_size = 50
-text = "52"
-horizontal_alignment = 1
+[node name="Deck" parent="." instance=ExtResource("3_618xt")]

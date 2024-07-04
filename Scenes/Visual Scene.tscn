@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqf5y4qlgaind"]
+[gd_scene load_steps=4 format=3 uid="uid://cqf5y4qlgaind"]
 
 [ext_resource type="PackedScene" uid="uid://c2ufyusl0pd62" path="res://Prefab/Card.tscn" id="1_wbeyc"]
 [ext_resource type="Texture2D" uid="uid://dck4esv8gcl28" path="res://Art/CardBack.svg" id="2_yeq0j"]
+[ext_resource type="PackedScene" uid="uid://cgmjkyqjgb5at" path="res://Prefab/Deck.tscn" id="3_ejodn"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -252,3 +253,6 @@ Suit = 3
 position = Vector2(2625.5, 1001.5)
 Value = 12
 Suit = 3
+
+[node name="Deck" parent="." instance=ExtResource("3_ejodn")]
+position = Vector2(471, -238)

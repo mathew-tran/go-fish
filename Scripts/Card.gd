@@ -35,6 +35,10 @@ enum SUIT {
 var SuitImages = []
 var ValueImages = []
 
+var bIsDragging = false
+var OriginalPosition = Vector2.ZERO
+var FollowSpeed = 2200
+
 func _ready():
 	SuitImages.append($Content/Suit1)
 	ValueImages.append($Content/Value1)
@@ -94,3 +98,32 @@ func SetValueImage():
 		valueImage = load("res://Art/Card_K.svg")
 	for image in ValueImages:
 		image.texture = valueImage
+
+func _process(delta):
+	if bIsDragging:
+		var currentPosition = global_position
+		var targetPosition = get_global_mouse_position()
+		if currentPosition.distance_to(targetPosition) < 10:
+			return
+		var direction = (targetPosition - currentPosition).normalized()
+
+		global_position = currentPosition + direction * FollowSpeed * delta
+
+func _on_control_mouse_entered():
+	$CardHighlight.visible = true
+
+func _on_control_mouse_exited():
+	$CardHighlight.visible = false
+
+
+func _on_button_button_down():
+	OriginalPosition = global_position
+	bIsDragging = true
+	$CardHighlight.visible = false
+
+
+
+func _on_button_button_up():
+	bIsDragging = false
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "global_position", OriginalPosition, .3).set_trans(Tween.TRANS_QUAD)
