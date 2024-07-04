@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqf5y4qlgaind"]
+
+[ext_resource type="PackedScene" uid="uid://c2ufyusl0pd62" path="res://Prefab/Card.tscn" id="1_wbeyc"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Card" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(106, 139)
+
+[node name="Card2" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(307, 139)
+Value = 1
+
+[node name="Card3" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(506, 139)
+Value = 2
+
+[node name="Card4" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(712, 139)
+Value = 3
+
+[node name="Card5" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(925, 139)
+Value = 4
+
+[node name="Card6" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(1134, 139)
+Value = 5
+
+[node name="Card7" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(1338, 139)
+Value = 6
+
+[node name="Card8" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(1548, 139)
+Value = 7
+
+[node name="Card9" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(1756, 139)
+Value = 8
+
+[node name="Card10" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(1962, 139)
+Value = 9
+
+[node name="Card11" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(2179, 139)
+Value = 10
+
+[node name="Card12" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(2387, 139)
+Value = 11
+
+[node name="Card13" parent="." instance=ExtResource("1_wbeyc")]
+position = Vector2(2603, 139)
+Value = 12

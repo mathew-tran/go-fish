@@ -33,18 +33,22 @@ position = Vector2(633, -757)
 
 [node name="Card" parent="EnemyHand" instance=ExtResource("1_3gkwr")]
 position = Vector2(-635.5, 395.5)
+texture = ExtResource("2_4j7v6")
 bShowBack = true
 
 [node name="Card2" parent="EnemyHand" instance=ExtResource("1_3gkwr")]
 position = Vector2(-563.5, 395.5)
+texture = ExtResource("2_4j7v6")
 bShowBack = true
 
 [node name="Card3" parent="EnemyHand" instance=ExtResource("1_3gkwr")]
 position = Vector2(-467.5, 395.5)
+texture = ExtResource("2_4j7v6")
 bShowBack = true
 
 [node name="Card4" parent="EnemyHand" instance=ExtResource("1_3gkwr")]
 position = Vector2(-371.5, 395.5)
+texture = ExtResource("2_4j7v6")
 bShowBack = true
 
 [node name="Card5" parent="EnemyHand" instance=ExtResource("1_3gkwr")]
@@ -58,6 +62,7 @@ texture = ExtResource("3_7bysq")
 metadata/_edit_group_ = true
 
 [node name="Card" parent="Deck" instance=ExtResource("1_3gkwr")]
+texture = ExtResource("2_4j7v6")
 bShowBack = true
 
 [node name="Label" type="Label" parent="Deck"]
