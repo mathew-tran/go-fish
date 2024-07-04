@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2ufyusl0pd62"]
+
+[ext_resource type="Texture2D" uid="uid://bu1hsdp8sr3j" path="res://Art/CardFront.svg" id="1_op46g"]
+[ext_resource type="Texture2D" uid="uid://cfiics73t87tb" path="res://Art/Card_A.svg" id="2_mk4wf"]
+[ext_resource type="Script" path="res://Scripts/Card.gd" id="2_n08gt"]
+[ext_resource type="Texture2D" uid="uid://8f70x02kp6bf" path="res://Art/Card_Spade.svg" id="3_ilqdj"]
+
+[node name="Card" type="Sprite2D"]
+texture = ExtResource("1_op46g")
+script = ExtResource("2_n08gt")
+
+[node name="Content" type="Node2D" parent="."]
+
+[node name="Value1" type="Sprite2D" parent="Content"]
+position = Vector2(-70, -97)
+texture = ExtResource("2_mk4wf")
+
+[node name="Suit1" type="Sprite2D" parent="Content"]
+position = Vector2(-70, -54)
+texture = ExtResource("3_ilqdj")

@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://vijp53m17pg2"]
+
+[ext_resource type="PackedScene" uid="uid://c2ufyusl0pd62" path="res://Prefab/Card.tscn" id="1_3gkwr"]
+[ext_resource type="Texture2D" uid="uid://dck4esv8gcl28" path="res://Art/CardBack.svg" id="2_4j7v6"]
+[ext_resource type="Texture2D" uid="uid://bl2kjrw3fwncu" path="res://Art/DeckHolder.svg" id="3_7bysq"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(298, 942)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="PlayerHand" type="Node2D" parent="."]
+
+[node name="Card" parent="PlayerHand" instance=ExtResource("1_3gkwr")]
+position = Vector2(-635.5, 395.5)
+
+[node name="Card2" parent="PlayerHand" instance=ExtResource("1_3gkwr")]
+position = Vector2(-563.5, 395.5)
+
+[node name="Card3" parent="PlayerHand" instance=ExtResource("1_3gkwr")]
+position = Vector2(-467.5, 395.5)
+
+[node name="Card4" parent="PlayerHand" instance=ExtResource("1_3gkwr")]
+position = Vector2(-371.5, 395.5)
+
+[node name="Card5" parent="PlayerHand" instance=ExtResource("1_3gkwr")]
+position = Vector2(-257.5, 395.5)
+texture = ExtResource("2_4j7v6")
+bShowBack = true
+
+[node name="EnemyHand" type="Node2D" parent="."]
+position = Vector2(633, -757)
+
+[node name="Card" parent="EnemyHand" instance=ExtResource("1_3gkwr")]
+position = Vector2(-635.5, 395.5)
+bShowBack = true
+
+[node name="Card2" parent="EnemyHand" instance=ExtResource("1_3gkwr")]
+position = Vector2(-563.5, 395.5)
+bShowBack = true
+
+[node name="Card3" parent="EnemyHand" instance=ExtResource("1_3gkwr")]
+position = Vector2(-467.5, 395.5)
+bShowBack = true
+
+[node name="Card4" parent="EnemyHand" instance=ExtResource("1_3gkwr")]
+position = Vector2(-371.5, 395.5)
+bShowBack = true
+
+[node name="Card5" parent="EnemyHand" instance=ExtResource("1_3gkwr")]
+position = Vector2(-257.5, 395.5)
+texture = ExtResource("2_4j7v6")
+bShowBack = true
+
+[node name="Deck" type="Sprite2D" parent="."]
+position = Vector2(777, 0)
+texture = ExtResource("3_7bysq")
+metadata/_edit_group_ = true
+
+[node name="Card" parent="Deck" instance=ExtResource("1_3gkwr")]
+bShowBack = true
+
+[node name="Label" type="Label" parent="Deck"]
+offset_left = -22.0
+offset_top = 145.0
+offset_right = 36.0
+offset_bottom = 214.0
+theme_override_font_sizes/font_size = 50
+text = "52"
+horizontal_alignment = 1
