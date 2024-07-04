@@ -29,6 +29,10 @@ window/stretch/mode="canvas_items"
 
 2d_physics/layer_2="Card"
 
+[physics]
+
+common/physics_jitter_fix=0.0
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

@@ -21,17 +21,15 @@ func _ready():
 	add_child(PlayerRaycast)
 
 
-func _process(delta):
-	var localPosition = get_global_mouse_position()
-	PlayerRaycast.global_position = localPosition
-	PlayerRaycast.target_position = Vector2.UP * 50
-
 func _physics_process(delta):
+	var localPosition = get_global_mouse_position()
+	#PlayerRaycast.global_position = localPosition
+	PlayerRaycast.target_position = localPosition
+	PlayerRaycast.force_raycast_update()
 	if PlayerRaycast.is_colliding():
 		var newCollider = PlayerRaycast.get_collider().get_parent()
-		if newCollider != CastCollider:
-			CastCollider = newCollider
-			print(CastCollider.name)
+		CastCollider = newCollider
+		print(CastCollider.name)
 	else:
 		CastCollider = null
 
