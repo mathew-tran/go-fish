@@ -37,7 +37,8 @@ var ValueImages = []
 
 var bIsDragging = false
 var OriginalPosition = Vector2.ZERO
-var FollowSpeed = 2200
+var FollowSpeed = 6200
+var OriginalZIndex = -1
 
 func _ready():
 	SuitImages.append($Content/Suit1)
@@ -45,6 +46,18 @@ func _ready():
 
 	UpdateUI()
 
+	EventManager.CardUnclicked.connect(OnUnclicked)
+
+	if Engine.is_editor_hint() == false:
+		name = VALUE.keys()[Value] + "-" + SUIT.keys()[Suit]
+
+
+func OnUnclicked(card: Card):
+	await get_tree().process_frame
+	if EventManager.CanBeClicked() == false:
+		return
+	if EventManager.GetLastCollidedCard() == self:
+		_on_control_mouse_entered()
 
 func UpdateUI():
 	$Content.visible = bShowBack == false
@@ -110,20 +123,40 @@ func _process(delta):
 		global_position = currentPosition + direction * FollowSpeed * delta
 
 func _on_control_mouse_entered():
+	if EventManager.CanBeClicked() == false:
+		return
 	$CardHighlight.visible = true
+
 
 func _on_control_mouse_exited():
 	$CardHighlight.visible = false
 
 
 func _on_button_button_down():
+	if EventManager.CanBeClicked() == false:
+		return
+
+	OriginalZIndex = z_index
+	z_index = 300
 	OriginalPosition = global_position
 	bIsDragging = true
 	$CardHighlight.visible = false
+	EventManager.CardClicked.emit(self)
 
 
 
 func _on_button_button_up():
-	bIsDragging = false
+	if OriginalZIndex == -1 or bIsDragging == false:
+		return
+
+	z_index = OriginalZIndex
+	OriginalZIndex = -1
+
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "global_position", OriginalPosition, .3).set_trans(Tween.TRANS_QUAD)
+	await tween.finished
+
+
+
+	EventManager.CardUnclicked.emit(self)
+	bIsDragging = false

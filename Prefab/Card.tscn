@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2ufyusl0pd62"]
+[gd_scene load_steps=7 format=3 uid="uid://c2ufyusl0pd62"]
 
 [ext_resource type="Texture2D" uid="uid://bu1hsdp8sr3j" path="res://Art/CardFront.svg" id="1_op46g"]
 [ext_resource type="Texture2D" uid="uid://cfiics73t87tb" path="res://Art/Card_A.svg" id="2_mk4wf"]
 [ext_resource type="Script" path="res://Scripts/Card.gd" id="2_n08gt"]
-[ext_resource type="Texture2D" uid="uid://8f70x02kp6bf" path="res://Art/Card_Spade.svg" id="3_ilqdj"]
+[ext_resource type="Texture2D" uid="uid://ce8cdt8bwa2og" path="res://Art/Card_Heart.svg" id="4_ni1ld"]
 [ext_resource type="Texture2D" uid="uid://d07jip1s667yo" path="res://Art/CardHighlight.svg" id="5_45j4e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4mh2"]
+size = Vector2(191, 249)
 
 [node name="Card" type="Sprite2D"]
 texture = ExtResource("1_op46g")
@@ -19,7 +22,7 @@ texture = ExtResource("2_mk4wf")
 
 [node name="Suit1" type="Sprite2D" parent="Content"]
 position = Vector2(-70, -54)
-texture = ExtResource("3_ilqdj")
+texture = ExtResource("4_ni1ld")
 
 [node name="CardHighlight" type="Sprite2D" parent="."]
 visible = false
@@ -32,6 +35,14 @@ offset_left = -95.0
 offset_top = -128.0
 offset_right = 96.0
 offset_bottom = 125.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_a4mh2")
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
