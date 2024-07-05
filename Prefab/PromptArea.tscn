@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://bfoen22npcxjj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eo155"]
-bg_color = Color(0.25098, 0.266667, 0.431373, 1)
+bg_color = Color(0, 0.0156863, 0.239216, 1)
 
 [node name="PromptArea" type="Panel"]
 custom_minimum_size = Vector2(900, 0)

@@ -64,7 +64,7 @@ func UpdateUI():
 func MoveToPosition(newPos):
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "global_position", newPos, .1)
-	tween.set_trans(Tween.TRANS_ELASTIC)
+	tween.set_trans(Tween.TRANS_SPRING)
 	OriginalPosition = newPos
 
 func FlipFacing():

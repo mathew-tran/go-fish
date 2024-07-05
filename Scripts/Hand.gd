@@ -34,22 +34,20 @@ func _on_area_2d_area_exited(area):
 
 func _on_play_area_child_order_changed():
 	await get_tree().create_timer(.15).timeout
-	var width = CardPlayArea.custom_minimum_size.x * 2
+	var width = CardPlayArea.custom_minimum_size.x
 	var cardAmount = CardPlayArea.get_child_count()
-	var cardWidth = 200
-	var minCardSpacing = 50
+	var cardWidth = 185
+	var minCardSpacing = 40
 	var totalCardsWidth = cardWidth * cardAmount
 
 	var actualSpacing = 0
-	if totalCardsWidth > width:
+
+	actualSpacing = cardWidth
+	while actualSpacing * cardAmount > width - minCardSpacing * 1.2:
+		actualSpacing -= 2
+	if actualSpacing < minCardSpacing:
 		actualSpacing = minCardSpacing
-		print("defaulted")
-	else:
-		actualSpacing = (width - totalCardsWidth) / (cardAmount -1)
-		if actualSpacing < minCardSpacing:
-			actualSpacing = minCardSpacing
-		elif actualSpacing > cardWidth:
-			actualSpacing = cardWidth
+
 
 
 	var currentXPosition = $Marker2D.global_position.x + cardWidth/2

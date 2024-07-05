@@ -75,11 +75,11 @@ script = ExtResource("2_n08gt")
 position = Vector2(3, 3)
 
 [node name="Value1" type="Sprite2D" parent="Content"]
-position = Vector2(-70, -97)
+position = Vector2(-68, -95)
 texture = SubResource("CompressedTexture2D_vm72b")
 
 [node name="Suit1" type="Sprite2D" parent="Content"]
-position = Vector2(-70, -54)
+position = Vector2(-68, -52)
 texture = SubResource("CompressedTexture2D_imt8f")
 
 [node name="Art" type="Sprite2D" parent="Content"]
