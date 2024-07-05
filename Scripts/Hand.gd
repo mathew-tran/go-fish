@@ -48,9 +48,13 @@ func _on_play_area_child_order_changed():
 	if actualSpacing < minCardSpacing:
 		actualSpacing = minCardSpacing
 
-
-
 	var currentXPosition = $Marker2D.global_position.x + cardWidth/2
+
+	if bIsPlayerHand == false:
+		actualSpacing = -actualSpacing
+
+
+
 	var yPosition = global_position.y -88
 	for i in range(0, cardAmount):
 		var card = CardPlayArea.get_child(i)

@@ -18,10 +18,10 @@ bIsPlayerHand = true
 position = Vector2(152, -325)
 
 [node name="Marker2D" parent="EnemyHand" index="2"]
-position = Vector2(595, -146)
+position = Vector2(767, -146)
 
 [node name="Deck" parent="." instance=ExtResource("3_618xt")]
-position = Vector2(669, 20)
+position = Vector2(697, 25)
 
 [node name="TurnLabel" type="Label" parent="."]
 custom_minimum_size = Vector2(900, 0)
