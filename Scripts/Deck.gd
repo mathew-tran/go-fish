@@ -23,7 +23,7 @@ func GenerateCards():
 		card.bShowBack = true
 
 		add_child(card)
-		card.MoveToPosition(global_position + Vector2.ONE * x * -.7 )
+		card.MoveToPosition(global_position + Vector2.ONE * x * -.9 )
 
 
 func _on_child_order_changed():
