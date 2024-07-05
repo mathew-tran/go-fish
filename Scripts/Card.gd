@@ -37,8 +37,10 @@ var ValueImages = []
 
 var bIsDragging = false
 var OriginalPosition = Vector2.ZERO
-var FollowSpeed = 6200
+var FollowSpeed = 3000
 var OriginalZIndex = -1
+var bIsFromDeck = true
+var bFlaggedToMove = false
 
 func _ready():
 	SuitImages.append($Content/Suit1)
@@ -46,18 +48,8 @@ func _ready():
 
 	UpdateUI()
 
-	EventManager.CardUnclicked.connect(OnUnclicked)
-
 	if Engine.is_editor_hint() == false:
 		name = VALUE.keys()[Value] + "-" + SUIT.keys()[Suit]
-
-
-func OnUnclicked(card: Card):
-	await get_tree().process_frame
-	if EventManager.CanBeClicked() == false:
-		return
-	if EventManager.GetLastCollidedCard() == self:
-		_on_control_mouse_entered()
 
 func UpdateUI():
 	$Content.visible = bShowBack == false
@@ -67,6 +59,16 @@ func UpdateUI():
 		texture = load("res://Art/CardFront.svg")
 		SetValueImage()
 		SetSuitImage()
+
+func MoveToPosition(newPos):
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "global_position", newPos, .1)
+	tween.set_trans(Tween.TRANS_ELASTIC)
+	OriginalPosition = newPos
+
+func FlipFacing():
+	bShowBack = false
+	UpdateUI()
 
 func SetSuitImage():
 	var suitImage : Texture
@@ -114,23 +116,17 @@ func SetValueImage():
 
 func _process(delta):
 	if bIsDragging:
-		var currentPosition = global_position
-		var targetPosition = get_global_mouse_position()
-		if currentPosition.distance_to(targetPosition) < 10:
-			return
-		var direction = (targetPosition - currentPosition).normalized()
-
-		global_position = currentPosition + direction * FollowSpeed * delta
+		global_position = get_global_mouse_position()
 
 func _on_control_mouse_entered():
 	if EventManager.CanBeClicked() == false:
 		return
 	$CardHighlight.visible = true
+	$Button.grab_focus()
 
 
 func _on_control_mouse_exited():
 	$CardHighlight.visible = false
-
 
 func _on_button_button_down():
 	if EventManager.CanBeClicked() == false:
@@ -138,7 +134,6 @@ func _on_button_button_down():
 
 	OriginalZIndex = z_index
 	z_index = 300
-	OriginalPosition = global_position
 	bIsDragging = true
 	$CardHighlight.visible = false
 	EventManager.CardClicked.emit(self)
@@ -149,14 +144,15 @@ func _on_button_button_up():
 	if OriginalZIndex == -1 or bIsDragging == false:
 		return
 
+	EventManager.CardBeginUnclicked.emit(self)
 	z_index = OriginalZIndex
 	OriginalZIndex = -1
 
-	var tween = get_tree().create_tween()
-	tween.tween_property(self, "global_position", OriginalPosition, .3).set_trans(Tween.TRANS_QUAD)
-	await tween.finished
+	if bFlaggedToMove == false:
+		var tween = get_tree().create_tween()
+		tween.tween_property(self, "global_position", OriginalPosition, .05).set_trans(Tween.TRANS_QUAD)
+		await tween.finished
 
-
-
+	bFlaggedToMove = false
 	EventManager.CardUnclicked.emit(self)
 	bIsDragging = false

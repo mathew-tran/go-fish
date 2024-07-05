@@ -1,10 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgmjkyqjgb5at"]
+[gd_scene load_steps=3 format=3 uid="uid://cgmjkyqjgb5at"]
 
 [ext_resource type="Texture2D" uid="uid://bl2kjrw3fwncu" path="res://Art/DeckHolder.svg" id="1_ihkxo"]
+[ext_resource type="Script" path="res://Scripts/Deck.gd" id="2_d5v5t"]
 
 [node name="Deck" type="Sprite2D"]
 position = Vector2(777, -2)
 texture = ExtResource("1_ihkxo")
+script = ExtResource("2_d5v5t")
 metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="."]
@@ -15,3 +17,5 @@ offset_bottom = 214.0
 theme_override_font_sizes/font_size = 50
 text = "52"
 horizontal_alignment = 1
+
+[connection signal="child_order_changed" from="." to="." method="_on_child_order_changed"]
