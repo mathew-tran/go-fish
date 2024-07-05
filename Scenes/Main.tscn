@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://vijp53m17pg2"]
+[gd_scene load_steps=5 format=3 uid="uid://vijp53m17pg2"]
 
 [ext_resource type="PackedScene" uid="uid://em1kgkfbp8u3" path="res://Prefab/Hand.tscn" id="1_homqd"]
+[ext_resource type="PackedScene" uid="uid://bfoen22npcxjj" path="res://Prefab/PromptArea.tscn" id="3_5j707"]
 [ext_resource type="PackedScene" uid="uid://cgmjkyqjgb5at" path="res://Prefab/Deck.tscn" id="3_618xt"]
+[ext_resource type="PackedScene" uid="uid://cuucfx8oh7p3i" path="res://Prefab/ScoreCounter.tscn" id="4_21hdq"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(298, 942)
@@ -16,3 +18,40 @@ bIsPlayerHand = true
 position = Vector2(85, -317)
 
 [node name="Deck" parent="." instance=ExtResource("3_618xt")]
+
+[node name="TurnLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(900, 0)
+offset_left = -450.0
+offset_top = -66.0
+offset_right = -256.0
+offset_bottom = -24.0
+theme_override_font_sizes/font_size = 30
+text = "ENEMY TURN"
+
+[node name="PromptArea" parent="." instance=ExtResource("3_5j707")]
+
+[node name="Score" parent="." instance=ExtResource("4_21hdq")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -926.0
+offset_top = 212.0
+offset_right = -626.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Score2" parent="." instance=ExtResource("4_21hdq")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -925.0
+offset_top = -232.0
+offset_right = -625.0
+offset_bottom = -192.0
+grow_horizontal = 2
+grow_vertical = 2

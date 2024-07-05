@@ -67,8 +67,7 @@ func MoveToPosition(newPos):
 	OriginalPosition = newPos
 
 func FlipFacing():
-	bShowBack = false
-	UpdateUI()
+	$AnimationPlayer.play("FlipUp")
 
 func SetSuitImage():
 	var suitImage : Texture
@@ -125,6 +124,7 @@ func _on_control_mouse_entered():
 	$Button.grab_focus()
 
 
+
 func _on_control_mouse_exited():
 	$CardHighlight.visible = false
 
@@ -138,6 +138,9 @@ func _on_button_button_down():
 	$CardHighlight.visible = false
 	EventManager.CardClicked.emit(self)
 
+func SetShowBack(bShow : bool):
+	bShowBack = bShow
+	UpdateUI()
 
 
 func _on_button_button_up():
