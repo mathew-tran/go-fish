@@ -36,7 +36,7 @@ func _on_play_area_child_order_changed():
 	await get_tree().create_timer(.15).timeout
 	var width = CardPlayArea.custom_minimum_size.x
 	var cardAmount = CardPlayArea.get_child_count()
-	var cardWidth = 185
+	var cardWidth = 180
 	var minCardSpacing = 40
 	var totalCardsWidth = cardWidth * cardAmount
 

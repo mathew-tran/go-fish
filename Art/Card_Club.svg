@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="35.225437"
-   height="35.176579"
-   viewBox="0 0 9.3200634 9.3071364"
+   width="33.692547"
+   height="33.7784"
+   viewBox="0 0 8.9144861 8.9372017"
    version="1.1"
    id="svg1"
    xmlns="http://www.w3.org/2000/svg"
@@ -13,9 +13,9 @@
      id="defs1" />
   <g
      id="layer1"
-     transform="translate(-27.890106,47.923801)">
+     transform="translate(-28.066663,47.724672)">
     <path
-       style="font-size:9.87777px;font-family:'Javanese Text';-inkscape-font-specification:'Javanese Text';text-align:center;text-anchor:middle;fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1.34161;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;paint-order:stroke fill markers"
+       style="font-size:9.87777px;font-family:'Javanese Text';-inkscape-font-specification:'Javanese Text';text-align:center;text-anchor:middle;fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1, 1;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
        d="m 35.309756,-39.28747 h -5.487218 l 0.05177,-0.220008 q 1.067679,-0.226476 1.417101,-0.446482 0.524131,-0.33001 0.854142,-0.977089 0.336478,-0.647078 0.336478,-1.365333 0,-0.103536 -0.0063,-0.297655 -0.394716,0.802375 -0.964145,1.171209 -0.562957,0.368835 -1.151797,0.368835 -0.750611,0 -1.274744,-0.524134 -0.524132,-0.524132 -0.524132,-1.287683 0,-0.750609 0.478837,-1.261801 0.478838,-0.517663 1.087091,-0.517663 0.388246,0 1.054735,0.33001 -0.271771,-0.452954 -0.355892,-0.679431 -0.07766,-0.232948 -0.07766,-0.49825 0,-0.737669 0.511191,-1.24886 0.511191,-0.511191 1.274743,-0.511191 0.763552,0 1.281212,0.511191 0.524135,0.511191 0.524135,1.216507 0,0.575898 -0.446484,1.210034 0.543545,-0.258831 0.653548,-0.291183 0.17471,-0.05176 0.394717,-0.05176 0.647077,0 1.119443,0.51119 0.478838,0.50472 0.478838,1.255331 0,0.776492 -0.524132,1.307095 -0.517662,0.524134 -1.248861,0.524134 -0.407658,0 -0.8412,-0.194123 -0.427071,-0.200594 -0.744139,-0.530606 -0.226476,-0.239417 -0.562957,-0.808846 0.02589,1.028854 0.310597,1.630637 0.291185,0.595311 0.886495,0.990029 0.401189,0.265299 1.442984,0.465895 z"
        id="path22" />
   </g>

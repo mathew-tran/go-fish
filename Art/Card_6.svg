@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="30.554291"
-   height="41.999928"
-   viewBox="0 0 8.0841559 11.112481"
+   width="29.263166"
+   height="40.708805"
+   viewBox="0 0 7.7425459 10.770871"
    version="1.1"
    id="svg1"
    xmlns="http://www.w3.org/2000/svg"
@@ -13,9 +13,9 @@
      id="defs1" />
   <g
      id="layer1"
-     transform="translate(-51.886719,64.829571)">
+     transform="translate(-52.057524,64.658766)">
     <path
-       style="font-size:9.87777px;font-family:'Poor Richard';-inkscape-font-specification:'Poor Richard';text-align:center;text-anchor:middle;fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1.34161;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;paint-order:stroke fill markers"
+       style="font-size:9.87777px;font-family:'Poor Richard';-inkscape-font-specification:'Poor Richard';text-align:center;text-anchor:middle;fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
        d="m 56.401163,-61.583396 q 0.608252,0 1.320039,0.394716 0.718255,0.388248 1.145327,1.100031 0.433541,0.711786 0.433541,1.643579 0,1.235917 -0.472366,2.180651 -0.465896,0.944732 -1.274743,1.410629 -0.802376,0.465895 -1.442983,0.465895 -1.604752,0 -2.581839,-1.300625 -0.970615,-1.300627 -0.970615,-3.643047 0,-2.174182 1.009439,-3.50069 1.015913,-1.326509 2.433012,-1.326509 1.015911,0 1.779463,0.465896 0.763551,0.459426 0.763551,0.795905 0,0.0647 -0.09707,0.129412 -0.09059,0.05825 -0.18118,0.05825 -0.129413,0 -0.601783,-0.284714 -0.465897,-0.291184 -0.795905,-0.388245 -0.330011,-0.09707 -0.614726,-0.09707 -1.203562,0 -1.714753,1.307097 -0.511193,1.300625 -0.511193,3.183622 0,1.876525 0.511193,2.885965 0.517661,1.00944 1.514161,1.00944 0.977087,0 1.404157,-0.860612 0.427071,-0.860613 0.427071,-2.704784 0,-1.100032 -0.420599,-1.688873 -0.414131,-0.58884 -1.061208,-0.58884 -0.207064,0 -0.446484,0.07766 -0.239418,0.07766 -0.647077,0.336482 -0.407658,0.25236 -0.550015,0.25236 -0.09059,0 -0.16177,-0.07117 -0.0647,-0.07766 -0.0647,-0.168241 0,-0.284714 0.679429,-0.679431 0.679432,-0.394717 1.190622,-0.394717 z"
        id="path8" />
   </g>
