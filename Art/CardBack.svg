@@ -105,16 +105,20 @@
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"
        inkscape:label="Card" />
-    <ellipse
-       style="fill:#ffffff;fill-rule:evenodd;stroke:#ffffff;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;paint-order:stroke fill markers"
-       id="path29"
-       cx="98.905289"
-       cy="30.362453"
-       rx="11.314207"
-       ry="6.9925652" />
-    <path
-       style="fill:#ffffff;fill-rule:evenodd;stroke:#ffffff;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;paint-order:stroke fill markers"
-       d="m 90.627321,24.565985 c -2.024163,-1.288104 -2.392193,-2.208178 -3.128253,-2.024163 -0.736058,0.184015 -2.024163,0.920074 -3.128251,2.944237 -1.10409,2.024165 -1.656135,1.656135 -0.73606,3.496283 0.920075,1.840148 2.392193,1.288103 1.840148,3.496284 -0.552045,2.208178 -4.048326,4.968401 -0.920073,5.336429 3.128251,0.36803 4.048326,0 6.072489,-1.288103 2.024163,-1.288106 1.840148,-0.184015 2.392193,-2.208178 0.552046,-2.024163 -2.392193,-9.752789 -2.392193,-9.752789 z"
-       id="path30" />
+    <g
+       id="g36"
+       transform="translate(3.0484386,1.9122044)">
+      <ellipse
+         style="fill:#ffffff;fill-rule:evenodd;stroke:#ffffff;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;paint-order:stroke fill markers"
+         id="path29"
+         cx="98.905289"
+         cy="30.362453"
+         rx="11.314207"
+         ry="6.9925652" />
+      <path
+         style="fill:#ffffff;fill-rule:evenodd;stroke:#ffffff;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;paint-order:stroke fill markers"
+         d="m 90.627321,24.565985 c -2.024163,-1.288104 -2.392193,-2.208178 -3.128253,-2.024163 -0.736058,0.184015 -2.024163,0.920074 -3.128251,2.944237 -1.10409,2.024165 -1.656135,1.656135 -0.73606,3.496283 0.920075,1.840148 2.392193,1.288103 1.840148,3.496284 -0.552045,2.208178 -4.048326,4.968401 -0.920073,5.336429 3.128251,0.36803 4.048326,0 6.072489,-1.288103 2.024163,-1.288106 1.840148,-0.184015 2.392193,-2.208178 0.552046,-2.024163 -2.392193,-9.752789 -2.392193,-9.752789 z"
+         id="path30" />
+    </g>
   </g>
 </svg>

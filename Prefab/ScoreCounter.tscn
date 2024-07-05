@@ -39,7 +39,95 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_2il8v")
 text = "10"
 horizontal_alignment = 1
 
+[node name="OwnedSet4" type="Label" parent="HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_2il8v")
+text = "10"
+horizontal_alignment = 1
+
+[node name="OwnedSet5" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_2il8v")
+text = "10"
+horizontal_alignment = 1
+
+[node name="OwnedSet6" type="Label" parent="HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_2il8v")
+text = "10"
+horizontal_alignment = 1
+
+[node name="OwnedSet7" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_2il8v")
+text = "10"
+horizontal_alignment = 1
+
+[node name="OwnedSet8" type="Label" parent="HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_2il8v")
+text = "10"
+horizontal_alignment = 1
+
+[node name="OwnedSet9" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_2il8v")
+text = "10"
+horizontal_alignment = 1
+
+[node name="OwnedSet10" type="Label" parent="HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_2il8v")
+text = "10"
+horizontal_alignment = 1
+
+[node name="OwnedSet11" type="Label" parent="HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_2il8v")
+text = "10"
+horizontal_alignment = 1
+
+[node name="OwnedSet12" type="Label" parent="HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_2il8v")
+text = "10"
+horizontal_alignment = 1
+
+[node name="OwnedSet13" type="Label" parent="HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_2il8v")
+text = "10"
+horizontal_alignment = 1
+
 [node name="OwnedSet2" type="Label" parent="HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
@@ -48,6 +136,7 @@ text = "2"
 horizontal_alignment = 1
 
 [node name="OwnedSet3" type="Label" parent="HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30

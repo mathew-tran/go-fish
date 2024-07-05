@@ -1,11 +1,15 @@
 [gd_scene load_steps=11 format=3 uid="uid://c2ufyusl0pd62"]
 
 [ext_resource type="Texture2D" uid="uid://bu1hsdp8sr3j" path="res://Art/CardFront.svg" id="1_op46g"]
-[ext_resource type="Texture2D" uid="uid://cfiics73t87tb" path="res://Art/Card_A.svg" id="2_mk4wf"]
 [ext_resource type="Script" path="res://Scripts/Card.gd" id="2_n08gt"]
-[ext_resource type="Texture2D" uid="uid://ce8cdt8bwa2og" path="res://Art/Card_Heart.svg" id="4_ni1ld"]
 [ext_resource type="Texture2D" uid="uid://d07jip1s667yo" path="res://Art/CardHighlight.svg" id="5_45j4e"]
 [ext_resource type="Texture2D" uid="uid://bqtksurgbcwej" path="res://Art/Card_1_Art.svg" id="5_rg84m"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vm72b"]
+load_path = "res://.godot/imported/Card_A.svg-b01c88993693c5c3210efbecb1e3d87e.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_imt8f"]
+load_path = "res://.godot/imported/Card_Heart.svg-20886cc1ad0f7afd1b4648d02aed9368.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4mh2"]
 size = Vector2(191, 249)
@@ -72,11 +76,11 @@ position = Vector2(3, 3)
 
 [node name="Value1" type="Sprite2D" parent="Content"]
 position = Vector2(-70, -97)
-texture = ExtResource("2_mk4wf")
+texture = SubResource("CompressedTexture2D_vm72b")
 
 [node name="Suit1" type="Sprite2D" parent="Content"]
 position = Vector2(-70, -54)
-texture = ExtResource("4_ni1ld")
+texture = SubResource("CompressedTexture2D_imt8f")
 
 [node name="Art" type="Sprite2D" parent="Content"]
 position = Vector2(-1, 29)

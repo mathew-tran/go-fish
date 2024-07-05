@@ -41,7 +41,7 @@ var FollowSpeed = 3000
 var OriginalZIndex = -1
 var bIsFromDeck = true
 var bFlaggedToMove = false
-
+var ContentColor : Color
 func _ready():
 	SuitImages.append($Content/Suit1)
 	ValueImages.append($Content/Value1)
@@ -57,8 +57,9 @@ func UpdateUI():
 		texture = load("res://Art/CardBack.svg")
 	else:
 		texture = load("res://Art/CardFront.svg")
-		SetValueImage()
 		SetSuitImage()
+		SetValueImage()
+
 
 func MoveToPosition(newPos):
 	var tween = get_tree().create_tween()
@@ -73,15 +74,20 @@ func SetSuitImage():
 	var suitImage : Texture
 	if Suit == SUIT.DIAMONDS:
 		suitImage = load("res://Art/Card_Diamond.svg")
+		ContentColor = "f98868ff"
 	elif Suit == SUIT.HEARTS:
 		suitImage = load("res://Art/Card_Heart.svg")
+		ContentColor = "f98868ff"
 	elif Suit == SUIT.CLUBS:
 		suitImage = load("res://Art/Card_Club.svg")
+		ContentColor = "5f8d94ff"
 	elif Suit == SUIT.SPADES:
 		suitImage = load("res://Art/Card_Spade.svg")
+		ContentColor = "5f8d94ff"
 
 	for image in SuitImages:
 		image.texture = suitImage
+		image.modulate = ContentColor
 func SetValueImage():
 	var valueImage : Texture
 	if Value == VALUE.ACE:
@@ -110,8 +116,10 @@ func SetValueImage():
 		valueImage = load("res://Art/Card_Q.svg")
 	elif Value == VALUE.KING:
 		valueImage = load("res://Art/Card_K.svg")
+
 	for image in ValueImages:
 		image.texture = valueImage
+		image.modulate = ContentColor
 
 func _process(delta):
 	if bIsDragging:

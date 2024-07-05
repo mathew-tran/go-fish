@@ -37,3 +37,4 @@ common/physics_jitter_fix=0.0
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.372549, 0.552941, 0.580392, 1)

@@ -32,7 +32,7 @@ scale = Vector2(1.00135, 1)
 shape = SubResource("RectangleShape2D_u58hu")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(-992, -146)
+position = Vector2(-998, -146)
 gizmo_extents = 59.5
 
 [connection signal="child_entered_tree" from="PlayArea" to="." method="_on_play_area_child_entered_tree"]

@@ -37,7 +37,7 @@ func _on_play_area_child_order_changed():
 	var width = CardPlayArea.custom_minimum_size.x * 2
 	var cardAmount = CardPlayArea.get_child_count()
 	var cardWidth = 200
-	var minCardSpacing = 75
+	var minCardSpacing = 50
 	var totalCardsWidth = cardWidth * cardAmount
 
 	var actualSpacing = 0
