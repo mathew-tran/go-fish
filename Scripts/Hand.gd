@@ -29,6 +29,7 @@ func _on_area_2d_area_exited(area):
 	var card = area.get_parent()
 	if card.bIsFromDeck == true:
 		CardToGain = null
+		card.bFlaggedToMove = false
 
 
 

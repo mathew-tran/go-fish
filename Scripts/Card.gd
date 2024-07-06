@@ -137,15 +137,19 @@ func SetValueImage():
 		CardArt.texture = load("res://Art/Card_8_Art.svg")
 	elif Value == VALUE.NINE:
 		valueImage = load("res://Art/Card_9.svg")
+		CardArt.texture = load("res://Art/Card_9_Art.svg")
 	elif Value == VALUE.TEN:
 		valueImage = load("res://Art/Card_10.svg")
+		CardArt.texture = load("res://Art/Card_10_Art.svg")
 	elif Value == VALUE.JACK:
 		valueImage = load("res://Art/Card_J.svg")
+		CardArt.texture = load("res://Art/Card_J_Art.svg")
 	elif Value == VALUE.QUEEN:
 		valueImage = load("res://Art/Card_Q.svg")
+		CardArt.texture = load("res://Art/Card_Q_Art.svg")
 	elif Value == VALUE.KING:
 		valueImage = load("res://Art/Card_K.svg")
-
+		CardArt.texture = load("res://Art/Card_K_Art.svg")
 	for image in ValueImages:
 		image.texture = valueImage
 		image.modulate = ContentColor
@@ -174,7 +178,7 @@ func _on_control_mouse_entered():
 		HoverState = HOVERSTATE.UP
 
 		HoverTween = get_tree().create_tween()
-		HoverTween.tween_property(self, "global_position", TargetUpPosition, .2)
+		HoverTween.tween_property(self, "global_position", TargetUpPosition, .1)
 
 
 
