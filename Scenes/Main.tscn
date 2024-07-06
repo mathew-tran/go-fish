@@ -12,6 +12,7 @@ border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
+shadow_size = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_di024"]
 bg_color = Color(0.25098, 0.266667, 0.431373, 1)
@@ -20,11 +21,19 @@ border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
+shadow_size = 10
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(298, 942)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(1000, 300)
+offset_left = -495.0
+offset_top = -143.0
+offset_right = 505.0
+offset_bottom = 157.0
 
 [node name="PlayerTable" type="Panel" parent="."]
 custom_minimum_size = Vector2(1920, 300)
@@ -85,22 +94,29 @@ offset_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" parent="Score" index="0"]
+text = "You"
+
 [node name="Score2" parent="." instance=ExtResource("4_21hdq")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 583.0
-offset_top = -185.0
-offset_right = 883.0
-offset_bottom = -145.0
+offset_left = 629.0
+offset_top = -169.0
+offset_right = 929.0
+offset_bottom = -129.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_group_ = true
+
+[node name="Label" parent="Score2" index="0"]
+text = "Opponent"
 
 [node name="HBoxContainer" parent="Score2" index="1"]
 layout_direction = 3
 
 [editable path="EnemyHand"]
+[editable path="Score"]
 [editable path="Score2"]
