@@ -1,27 +1,65 @@
-[gd_scene load_steps=5 format=3 uid="uid://vijp53m17pg2"]
+[gd_scene load_steps=7 format=3 uid="uid://vijp53m17pg2"]
 
 [ext_resource type="PackedScene" uid="uid://em1kgkfbp8u3" path="res://Prefab/Hand.tscn" id="1_homqd"]
 [ext_resource type="PackedScene" uid="uid://bfoen22npcxjj" path="res://Prefab/PromptArea.tscn" id="3_5j707"]
 [ext_resource type="PackedScene" uid="uid://cgmjkyqjgb5at" path="res://Prefab/Deck.tscn" id="3_618xt"]
 [ext_resource type="PackedScene" uid="uid://cuucfx8oh7p3i" path="res://Prefab/ScoreCounter.tscn" id="4_21hdq"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgqff"]
+bg_color = Color(0.646954, 0.21918, 0.0863637, 1)
+skew = Vector2(-0.5, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_di024"]
+bg_color = Color(0.25098, 0.266667, 0.431373, 1)
+skew = Vector2(0.5, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
 [node name="Node2D" type="Node2D"]
 position = Vector2(298, 942)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="PlayerTable" type="Panel" parent="."]
+custom_minimum_size = Vector2(1920, 300)
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -939.0
+offset_top = -540.0
+offset_right = 981.0
+offset_bottom = -240.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wgqff")
+
+[node name="PlayerTable2" type="Panel" parent="."]
+custom_minimum_size = Vector2(1920, 300)
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -999.0
+offset_top = 241.0
+offset_right = 921.0
+offset_bottom = 541.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_di024")
+
 [node name="PlayerHand" parent="." instance=ExtResource("1_homqd")]
-position = Vector2(65, 501)
+position = Vector2(-65, 501)
 bIsPlayerHand = true
 
 [node name="EnemyHand" parent="." instance=ExtResource("1_homqd")]
-position = Vector2(152, -325)
+position = Vector2(270, -325)
 
 [node name="Marker2D" parent="EnemyHand" index="2"]
-position = Vector2(595, -146)
+position = Vector2(429, -146)
 
 [node name="Deck" parent="." instance=ExtResource("3_618xt")]
-position = Vector2(669, 20)
+position = Vector2(669, 63)
 
 [node name="TurnLabel" type="Label" parent="."]
 custom_minimum_size = Vector2(900, 0)
@@ -41,9 +79,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -926.0
-offset_top = 212.0
+offset_top = 170.0
 offset_right = -626.0
-offset_bottom = 252.0
+offset_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -53,12 +91,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 575.0
-offset_top = -231.0
-offset_right = 875.0
-offset_bottom = -191.0
+offset_left = 583.0
+offset_top = -185.0
+offset_right = 883.0
+offset_bottom = -145.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_group_ = true
 
 [node name="HBoxContainer" parent="Score2" index="1"]
 layout_direction = 3

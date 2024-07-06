@@ -2,14 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://bu1hsdp8sr3j" path="res://Art/CardFront.svg" id="1_op46g"]
 [ext_resource type="Script" path="res://Scripts/Card.gd" id="2_n08gt"]
+[ext_resource type="Texture2D" uid="uid://byslnqgeu66fs" path="res://Art/Card_A.svg" id="3_0kd4i"]
+[ext_resource type="Texture2D" uid="uid://dtkduqwitmprd" path="res://Art/Card_Heart.svg" id="4_xfhi1"]
 [ext_resource type="Texture2D" uid="uid://d07jip1s667yo" path="res://Art/CardHighlight.svg" id="5_45j4e"]
 [ext_resource type="Texture2D" uid="uid://bqtksurgbcwej" path="res://Art/Card_1_Art.svg" id="5_rg84m"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vm72b"]
-load_path = "res://.godot/imported/Card_A.svg-b01c88993693c5c3210efbecb1e3d87e.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_imt8f"]
-load_path = "res://.godot/imported/Card_Heart.svg-20886cc1ad0f7afd1b4648d02aed9368.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4mh2"]
 size = Vector2(191, 249)
@@ -75,12 +71,14 @@ script = ExtResource("2_n08gt")
 position = Vector2(3, 3)
 
 [node name="Value1" type="Sprite2D" parent="Content"]
+modulate = Color(0.976471, 0.533333, 0.407843, 1)
 position = Vector2(-68, -95)
-texture = SubResource("CompressedTexture2D_vm72b")
+texture = ExtResource("3_0kd4i")
 
 [node name="Suit1" type="Sprite2D" parent="Content"]
+modulate = Color(0.976471, 0.533333, 0.407843, 1)
 position = Vector2(-68, -52)
-texture = SubResource("CompressedTexture2D_imt8f")
+texture = ExtResource("4_xfhi1")
 
 [node name="Art" type="Sprite2D" parent="Content"]
 position = Vector2(-1, 29)
@@ -110,7 +108,7 @@ shape = SubResource("RectangleShape2D_a4mh2")
 libraries = {
 "": SubResource("AnimationLibrary_w1nwh")
 }
-speed_scale = 3.0
+speed_scale = 6.0
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

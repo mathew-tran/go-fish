@@ -33,18 +33,18 @@ func _on_area_2d_area_exited(area):
 
 
 func _on_play_area_child_order_changed():
-	await get_tree().create_timer(.15).timeout
-	var width = CardPlayArea.custom_minimum_size.x
+	await get_tree().create_timer(.05).timeout
+	var width = 1350
 	var cardAmount = CardPlayArea.get_child_count()
 	var cardWidth = 180
-	var minCardSpacing = 40
+	var minCardSpacing = 30
 	var totalCardsWidth = cardWidth * cardAmount
 
 	var actualSpacing = 0
 
 	actualSpacing = cardWidth
 	while actualSpacing * cardAmount > width - minCardSpacing * 1.2:
-		actualSpacing -= 2
+		actualSpacing -= 1
 	if actualSpacing < minCardSpacing:
 		actualSpacing = minCardSpacing
 

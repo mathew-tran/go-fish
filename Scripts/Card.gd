@@ -42,6 +42,19 @@ var OriginalZIndex = -1
 var bIsFromDeck = true
 var bFlaggedToMove = false
 var ContentColor : Color
+
+var HoverTween = null
+
+enum HOVERSTATE {
+	UNPLACED,
+	UP,
+	DOWN
+}
+var TargetUpPosition = Vector2.ZERO
+var TargetDownPosition = Vector2.ZERO
+
+var HoverState = HOVERSTATE.UNPLACED
+
 func _ready():
 	SuitImages.append($Content/Suit1)
 	ValueImages.append($Content/Value1)
@@ -62,8 +75,15 @@ func UpdateUI():
 
 
 func MoveToPosition(newPos):
+	HoverState = HOVERSTATE.DOWN
+	TargetDownPosition = newPos
+	TargetUpPosition = newPos + Vector2.UP * 60
+	if is_instance_valid(HoverTween):
+		HoverTween.kill()
+		HoverTween = null
+
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "global_position", newPos, .1)
+	tween.tween_property(self, "global_position", newPos, .05)
 	tween.set_trans(Tween.TRANS_SPRING)
 	OriginalPosition = newPos
 
@@ -131,15 +151,57 @@ func _on_control_mouse_entered():
 	$CardHighlight.visible = true
 	$Button.grab_focus()
 
+	if bIsFromDeck:
+		return
+
+	if HoverState == HOVERSTATE.UNPLACED:
+		return
+
+	if is_instance_valid(HoverTween):
+		HoverTween.kill()
+		HoverTween = null
+
+	if HoverState == HOVERSTATE.DOWN:
+		HoverState = HOVERSTATE.UP
+
+		HoverTween = get_tree().create_tween()
+		HoverTween.tween_property(self, "global_position", TargetUpPosition, .2)
+
+
 
 
 func _on_control_mouse_exited():
+	if EventManager.CanBeClicked() == false:
+		return
+
 	$CardHighlight.visible = false
+
+	if HoverState == HOVERSTATE.UNPLACED:
+		return
+
+	if bIsFromDeck:
+		return
+
+
+	if is_instance_valid(HoverTween):
+		HoverTween.kill()
+		HoverTween = null
+
+
+	if HoverState == HOVERSTATE.UP:
+		HoverState = HOVERSTATE.DOWN
+		HoverTween = get_tree().create_tween()
+		HoverTween.tween_property(self, "global_position", TargetDownPosition, .2)
+
 
 func _on_button_button_down():
 	if EventManager.CanBeClicked() == false:
 		return
 
+
+	if is_instance_valid(HoverTween):
+		HoverTween.kill()
+		HoverTween = null
 	OriginalZIndex = z_index
 	z_index = 300
 	bIsDragging = true
@@ -149,7 +211,6 @@ func _on_button_button_down():
 func SetShowBack(bShow : bool):
 	bShowBack = bShow
 	UpdateUI()
-
 
 func _on_button_button_up():
 	if OriginalZIndex == -1 or bIsDragging == false:
