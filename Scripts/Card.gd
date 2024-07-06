@@ -34,6 +34,7 @@ enum SUIT {
 
 var SuitImages = []
 var ValueImages = []
+@onready var CardArt = $Content/Art
 
 var bIsDragging = false
 var OriginalPosition = Vector2.ZERO
@@ -112,14 +113,19 @@ func SetValueImage():
 	var valueImage : Texture
 	if Value == VALUE.ACE:
 		valueImage = load("res://Art/Card_A.svg")
+		CardArt.texture = load("res://Art/Card_1_Art.svg")
 	elif Value == VALUE.TWO:
 		valueImage = load("res://Art/Card_2.svg")
+		CardArt.texture = load("res://Art/Card_2_Art.svg")
 	elif Value == VALUE.THREE:
 		valueImage = load("res://Art/Card_3.svg")
+		CardArt.texture = load("res://Art/Card_3_Art.svg")
 	elif Value == VALUE.FOUR:
 		valueImage = load("res://Art/Card_4.svg")
+		CardArt.texture = load("res://Art/Card_4_Art.svg")
 	elif Value == VALUE.FIVE:
 		valueImage = load("res://Art/Card_5.svg")
+		CardArt.texture = load("res://Art/Card_5_Art.svg")
 	elif Value == VALUE.SIX:
 		valueImage = load("res://Art/Card_6.svg")
 	elif Value == VALUE.SEVEN:
