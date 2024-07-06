@@ -70,6 +70,10 @@ script = ExtResource("2_n08gt")
 [node name="Content" type="Node2D" parent="."]
 position = Vector2(3, 3)
 
+[node name="Art" type="Sprite2D" parent="Content"]
+position = Vector2(-1, 11)
+texture = ExtResource("5_rg84m")
+
 [node name="Value1" type="Sprite2D" parent="Content"]
 modulate = Color(0.976471, 0.533333, 0.407843, 1)
 position = Vector2(-68, -95)
@@ -79,10 +83,6 @@ texture = ExtResource("3_0kd4i")
 modulate = Color(0.976471, 0.533333, 0.407843, 1)
 position = Vector2(-68, -52)
 texture = ExtResource("4_xfhi1")
-
-[node name="Art" type="Sprite2D" parent="Content"]
-position = Vector2(-1, 29)
-texture = ExtResource("5_rg84m")
 
 [node name="CardHighlight" type="Sprite2D" parent="."]
 visible = false

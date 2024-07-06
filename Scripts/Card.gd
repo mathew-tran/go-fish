@@ -128,10 +128,13 @@ func SetValueImage():
 		CardArt.texture = load("res://Art/Card_5_Art.svg")
 	elif Value == VALUE.SIX:
 		valueImage = load("res://Art/Card_6.svg")
+		CardArt.texture = load("res://Art/Card_6_Art.svg")
 	elif Value == VALUE.SEVEN:
 		valueImage = load("res://Art/Card_7.svg")
+		CardArt.texture = load("res://Art/Card_7_Art.svg")
 	elif Value == VALUE.EIGHT:
 		valueImage = load("res://Art/Card_8.svg")
+		CardArt.texture = load("res://Art/Card_8_Art.svg")
 	elif Value == VALUE.NINE:
 		valueImage = load("res://Art/Card_9.svg")
 	elif Value == VALUE.TEN:
