@@ -15,7 +15,7 @@ func OnCardBeginUnclicked(card: Card):
 		if bIsPlayerHand:
 			CardToGain.FlipFacing()
 		CardToGain.reparent(CardPlayArea)
-		CardToGain.bIsFromDeck = false
+		CardToGain.RemoveFromDeck()
 		CardToGain = null
 
 

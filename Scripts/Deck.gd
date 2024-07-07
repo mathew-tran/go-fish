@@ -2,6 +2,7 @@ extends Sprite2D
 
 
 # Called when the node enters the scene tree for the first time.
+var Deck = []
 func _ready():
 	GenerateCards()
 
@@ -24,7 +25,14 @@ func GenerateCards():
 
 		add_child(card)
 		card.MoveToPosition(global_position + Vector2.ONE * x * -.9 )
+		card.MovedOutOfDeck.connect(OnCardMovedOutOfDeck)
+		card.SetEnable(false)
+		Deck.append(card)
+	Deck[len(Deck) - 1].SetEnable(true)
 
+func OnCardMovedOutOfDeck():
+	Deck.pop_back()
+	Deck[len(Deck) - 1].SetEnable(true)
 
 func _on_child_order_changed():
 	await get_tree().create_timer(.15).timeout

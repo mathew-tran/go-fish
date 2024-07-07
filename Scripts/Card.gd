@@ -56,6 +56,8 @@ var TargetDownPosition = Vector2.ZERO
 
 var HoverState = HOVERSTATE.UNPLACED
 
+signal MovedOutOfDeck
+
 func _ready():
 	SuitImages.append($Content/Suit1)
 	ValueImages.append($Content/Value1)
@@ -158,8 +160,18 @@ func _process(delta):
 	if bIsDragging:
 		global_position = get_global_mouse_position()
 
+func SetEnable(bEnable):
+	$Button.disabled = !bEnable
+
+func CanBeInteracted():
+	return EventManager.CanBeClicked() and $Button.disabled == false
+
+func RemoveFromDeck():
+	bIsFromDeck = false
+	MovedOutOfDeck.emit()
+
 func _on_control_mouse_entered():
-	if EventManager.CanBeClicked() == false:
+	if CanBeInteracted() == false:
 		return
 	$CardHighlight.visible = true
 	$Button.grab_focus()
@@ -184,7 +196,7 @@ func _on_control_mouse_entered():
 
 
 func _on_control_mouse_exited():
-	if EventManager.CanBeClicked() == false:
+	if CanBeInteracted() == false:
 		return
 
 	$CardHighlight.visible = false
