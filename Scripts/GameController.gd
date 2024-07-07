@@ -38,17 +38,26 @@ func _ready():
 	$TellTimer.start()
 	await $TellTimer.timeout
 
+	CoinReference.ForceHeads()
+
 	if bIsPlayerFirst == false:
 		await CoinReference.MoveToPosition(EnemyReference.GetCoinPlacementPosition())
 	else:
 		await CoinReference.MoveToPosition(PlayerReference.GetCoinPlacementPosition())
 
-	CoinReference.ForceHeads()
+
 
 	PromptReference.SetText("Shuffling ...")
 	await DeckReference.GenerateCards()
 	PromptReference.SetText("")
 	$StartTimer.start()
+
+
+func DeterminePlayersTurn():
+	if bIsPlayerFirst:
+		PromptReference.SetText("Your turn, drag a card here")
+	else:
+		PromptReference.SetText("Waiting for opponent...")
 
 func OnChoiceMade(choice : CoinTossPanel.CHOICE):
 	PlayerChoice = choice
@@ -64,7 +73,7 @@ func Setup():
 		await DeckReference.GiveCard(PlayerReference)
 		await DeckReference.GiveCard(EnemyReference)
 
-
+	DeterminePlayersTurn()
 
 func _on_start_timer_timeout():
 	Setup()
