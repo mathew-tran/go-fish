@@ -1,0 +1,102 @@
+[gd_scene load_steps=8 format=3 uid="uid://by5r1p6t6r5b"]
+
+[ext_resource type="Texture2D" uid="uid://bhabi47fcl4tu" path="res://Art/Coin_Heads.svg" id="1_8adam"]
+[ext_resource type="Texture2D" uid="uid://pxirfnuwep88" path="res://Art/Coin_Tails.svg" id="2_jscbw"]
+[ext_resource type="Script" path="res://Scripts/Coin.gd" id="2_vtdfb"]
+
+[sub_resource type="Animation" id="Animation_k1vlv"]
+resource_name = "FlipHead"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_8adam"), ExtResource("2_jscbw"), ExtResource("2_jscbw")]
+}
+
+[sub_resource type="Animation" id="Animation_grf8t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_8adam")]
+}
+
+[sub_resource type="Animation" id="Animation_eg1mp"]
+resource_name = "FlipTails"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_jscbw"), ExtResource("1_8adam"), ExtResource("1_8adam")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_otedw"]
+_data = {
+"FlipHead": SubResource("Animation_k1vlv"),
+"FlipTails": SubResource("Animation_eg1mp"),
+"RESET": SubResource("Animation_grf8t")
+}
+
+[node name="Coin" type="Sprite2D" groups=["Coin"]]
+texture = ExtResource("1_8adam")
+script = ExtResource("2_vtdfb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_otedw")
+}

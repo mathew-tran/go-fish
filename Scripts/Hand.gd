@@ -2,7 +2,7 @@ extends Node2D
 
 class_name Hand
 
-var CardToGain = null
+var CardToGain : Card
 
 @onready var CardPlayArea = $PlayArea
 @export var bIsPlayerHand = false
@@ -14,10 +14,18 @@ func OnCardBeginUnclicked(card: Card):
 	if CardToGain != null:
 		if bIsPlayerHand:
 			CardToGain.FlipFacing()
+			CardToGain.SetEnable(true)
 		CardToGain.reparent(CardPlayArea)
 		CardToGain.RemoveFromDeck()
 		CardToGain = null
 
+func GetHandGainPosition():
+	return $HandGainPosition.global_position + Vector2(randi_range(-100, 100), randi_range(-100,100))
+
+func GainCard(card : Card):
+	card.bFlaggedToMove = true
+	CardToGain = card
+	OnCardBeginUnclicked(CardToGain)
 
 func _on_area_2d_area_entered(area):
 	var card = area.get_parent()

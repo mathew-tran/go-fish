@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://0k75duvxprnl"]
+
+[ext_resource type="Script" path="res://Scripts/GameController.gd" id="1_aput2"]
+
+[node name="GameManager" type="Node"]
+script = ExtResource("1_aput2")
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="TellTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

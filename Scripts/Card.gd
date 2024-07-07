@@ -77,7 +77,7 @@ func UpdateUI():
 		SetValueImage()
 
 
-func MoveToPosition(newPos):
+func MoveToPosition(newPos, duration = .05):
 	HoverState = HOVERSTATE.DOWN
 	TargetDownPosition = newPos
 	TargetUpPosition = newPos + Vector2.UP * 60
@@ -86,9 +86,10 @@ func MoveToPosition(newPos):
 		HoverTween = null
 
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "global_position", newPos, .05)
+	tween.tween_property(self, "global_position", newPos, duration)
 	tween.set_trans(Tween.TRANS_SPRING)
 	OriginalPosition = newPos
+	await tween.finished
 
 func FlipFacing():
 	$AnimationPlayer.play("FlipUp")
@@ -218,6 +219,10 @@ func _on_control_mouse_exited():
 		HoverTween = get_tree().create_tween()
 		HoverTween.tween_property(self, "global_position", TargetDownPosition, .2)
 
+func SetCardToMoveToHand(hand : Hand):
+	_on_button_button_down()
+	bFlaggedToMove = true
+	_on_button_button_up()
 
 func _on_button_button_down():
 	if EventManager.CanBeClicked() == false:

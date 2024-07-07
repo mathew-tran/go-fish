@@ -1,0 +1,112 @@
+[gd_scene load_steps=6 format=3 uid="uid://bji1wjjrmmarp"]
+
+[ext_resource type="Script" path="res://Scripts/CoinTossPanel.gd" id="1_8s5kp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lt3gp"]
+bg_color = Color(0.964422, 0.336731, 0.576058, 1)
+skew = Vector2(0.5, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al2g7"]
+bg_color = Color(0.988622, 0.619575, 0.731161, 1)
+skew = Vector2(0.5, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_411gf"]
+bg_color = Color(0.976471, 0.533333, 0.0313726, 1)
+skew = Vector2(-0.5, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1336o"]
+bg_color = Color(0.998907, 0.641884, 0.354644, 1)
+skew = Vector2(-0.5, 0)
+
+[node name="CoinTossPanel" type="Panel" groups=["CoinTossPanel"]]
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8s5kp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(900, 800)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -400.0
+offset_right = 450.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 200
+text = "CHOOSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_lt3gp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_al2g7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lt3gp")
+
+[node name="Label" type="Label" parent="VBoxContainer/Button"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.5
+offset_top = -11.5
+offset_right = 26.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "HEADS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_411gf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1336o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_411gf")
+
+[node name="Label2" type="Label" parent="VBoxContainer/Button2"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -68.5
+offset_right = 300.0
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "TAILS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_up" from="VBoxContainer/Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="VBoxContainer/Button2" to="." method="_on_button_2_button_up"]
