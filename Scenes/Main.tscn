@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://vijp53m17pg2"]
+[gd_scene load_steps=11 format=3 uid="uid://vijp53m17pg2"]
 
 [ext_resource type="PackedScene" uid="uid://em1kgkfbp8u3" path="res://Prefab/Hand.tscn" id="1_homqd"]
 [ext_resource type="PackedScene" uid="uid://bfoen22npcxjj" path="res://Prefab/PromptArea.tscn" id="3_5j707"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://0k75duvxprnl" path="res://Prefab/GameController.tscn" id="5_mw4mh"]
 [ext_resource type="PackedScene" uid="uid://bji1wjjrmmarp" path="res://Prefab/CoinTossPanel.tscn" id="6_piew8"]
 [ext_resource type="PackedScene" uid="uid://by5r1p6t6r5b" path="res://Prefab/Coin.tscn" id="6_tsq27"]
+[ext_resource type="PackedScene" uid="uid://dpppqqfdgvt2r" path="res://Prefab/ResetButton.tscn" id="8_8swvy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgqff"]
 bg_color = Color(0.646954, 0.21918, 0.0863637, 1)
@@ -135,6 +136,8 @@ position = Vector2(1404, 157)
 visible = false
 
 [node name="GameController" parent="." instance=ExtResource("5_mw4mh")]
+
+[node name="ResetButton" parent="." instance=ExtResource("8_8swvy")]
 
 [editable path="PlayerHand"]
 [editable path="EnemyHand"]

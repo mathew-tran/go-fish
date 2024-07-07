@@ -45,7 +45,10 @@ func _on_area_2d_area_exited(area):
 
 
 func _on_play_area_child_order_changed():
-	await get_tree().create_timer(.05).timeout
+	#await get_tree().create_timer(.05).timeout
+	if is_inside_tree() == false:
+		return
+
 	var width = 1350
 	var cardAmount = CardPlayArea.get_child_count()
 	var cardWidth = 180

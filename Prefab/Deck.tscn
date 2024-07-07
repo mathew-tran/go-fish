@@ -15,7 +15,7 @@ offset_top = -32.0
 offset_right = 191.0
 offset_bottom = 37.0
 theme_override_font_sizes/font_size = 50
-text = "52"
+text = "0"
 horizontal_alignment = 1
 
 [connection signal="child_order_changed" from="." to="." method="_on_child_order_changed"]

@@ -28,9 +28,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="1.0412186"
-     inkscape:cx="473.48367"
-     inkscape:cy="-677.57145"
+     inkscape:zoom="1.4725055"
+     inkscape:cx="4209.1525"
+     inkscape:cy="-297.11265"
      inkscape:window-width="1920"
      inkscape:window-height="1010"
      inkscape:window-x="1699"
@@ -2729,7 +2729,7 @@
        id="path166"
        inkscape:path-effect="#path-effect166"
        inkscape:original-d="m 1143.8583,-74.208838 c 0.4791,0 0.9583,0 1.4374,0 1.737,0 3.4739,0 5.2108,0 3.2344,-0.419269 6.4686,-0.83852 9.7029,-1.257778 1.5572,-1.497383 3.1145,-2.994705 4.6717,-4.492059 0.1797,-1.257803 0.3594,-2.515555 0.5391,-3.773331 -1.1381,-0.179687 -2.276,-0.359365 -3.414,-0.539047 -1.2578,0.838534 -2.5156,1.677035 -3.7733,2.515553 -0.7787,0.179686 -1.5573,0.359365 -2.3359,0.539046 -2.0365,0 -4.0728,0 -6.1092,0 -1.0781,1.018222 -2.1562,2.036403 -3.2343,3.054601 -0.4193,0.718746 -0.8385,1.43746 -1.2578,2.15619 -0.4791,0.598954 -0.9583,1.197883 -1.4374,1.796825 z"
-       transform="matrix(0.71391917,0,0,0.71391917,317.51707,-30.888271)" /><image
+       transform="matrix(0.59229997,0,0,0.71391917,456.69047,-30.888271)" /><image
        width="67.73333"
        height="52.122917"
        preserveAspectRatio="none"
@@ -2978,14 +2978,14 @@
          cx="88.827057"
          cy="-161.77885"
          r="19.509167" /></g><rect
-       style="fill:#c5ac7a;fill-rule:evenodd;stroke:#fffddb;stroke-width:0.414253;stroke-linecap:square;stroke-linejoin:round;paint-order:stroke fill markers"
+       style="fill:#c5ac7a;fill-rule:evenodd;stroke:#fffddb;stroke-width:3.31402397;stroke-linecap:square;stroke-linejoin:round;paint-order:stroke fill markers;stroke-dasharray:none"
        id="rect211"
        width="17.053059"
        height="18.000452"
        x="80.001572"
        y="-164.07043"
        ry="5.7136087" /><circle
-       style="fill:#c5ac7a;fill-rule:evenodd;stroke:#fffddb;stroke-width:0.499999;stroke-linecap:square;stroke-linejoin:round;paint-order:stroke fill markers"
+       style="fill:#c5ac7a;fill-rule:evenodd;stroke:#fffddb;stroke-width:3.99999189;stroke-linecap:square;stroke-linejoin:round;paint-order:stroke fill markers;stroke-dasharray:none"
        id="path210"
        cx="88.874733"
        cy="-169.93559"
@@ -3005,7 +3005,7 @@
          cx="88.827057"
          cy="-161.77885"
          r="19.509167" /></g><rect
-       style="fill:#c5ac7a;fill-rule:evenodd;stroke:#fffddb;stroke-width:0.499999;stroke-linecap:square;stroke-linejoin:round;paint-order:stroke fill markers"
+       style="fill:#c5ac7a;fill-rule:evenodd;stroke:#fffddb;stroke-width:4;stroke-linecap:square;stroke-linejoin:round;paint-order:stroke fill markers;stroke-dasharray:none"
        id="rect212"
        width="3.1763663"
        height="25.792095"

@@ -5,6 +5,7 @@ class_name Deck
 # Called when the node enters the scene tree for the first time.
 var DeckOfCards : Array[Card]
 
+
 func GenerateCards():
 	var data = []
 	for x in Card.VALUE:
@@ -40,6 +41,8 @@ func OnCardMovedOutOfDeck():
 	DeckOfCards.pop_back()
 
 func _on_child_order_changed():
-	await get_tree().create_timer(.15).timeout
+	if is_inside_tree() == false:
+		return
+	#await get_tree().create_timer(.15).timeout
 	$Label.text = str(get_child_count() - 1)
 	pass # Replace with function body.
