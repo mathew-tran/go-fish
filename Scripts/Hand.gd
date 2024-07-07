@@ -22,6 +22,9 @@ func OnCardBeginUnclicked(card: Card):
 func GetHandGainPosition():
 	return $HandGainPosition.global_position + Vector2(randi_range(-100, 100), randi_range(-100,100))
 
+func GetCoinPlacementPosition():
+	return $CoinPlacementPosition.global_position
+
 func GainCard(card : Card):
 	card.bFlaggedToMove = true
 	CardToGain = card

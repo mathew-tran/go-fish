@@ -31,3 +31,8 @@ func Flip():
 	else:
 		OnCoinTossed.emit(CoinTossPanel.CHOICE.TAILS)
 
+func ForceHeads():
+	if bIsHeads == false:
+		$AnimationPlayer.play("FlipTails")
+		bIsHeads = false
+

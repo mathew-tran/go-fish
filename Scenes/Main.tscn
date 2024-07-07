@@ -57,6 +57,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_di024")
 position = Vector2(-65, 501)
 bIsPlayerHand = true
 
+[node name="CoinPlacementPosition" parent="PlayerHand" index="4"]
+position = Vector2(811, -112)
+
 [node name="EnemyHand" parent="." groups=["Enemy"] instance=ExtResource("1_homqd")]
 position = Vector2(270, -325)
 
@@ -65,6 +68,9 @@ position = Vector2(429, -146)
 
 [node name="HandGainPosition" parent="EnemyHand" index="3"]
 position = Vector2(-199, 196)
+
+[node name="CoinPlacementPosition" parent="EnemyHand" index="4"]
+position = Vector2(-1042, -68)
 
 [node name="Deck" parent="." groups=["Deck"] instance=ExtResource("3_618xt")]
 position = Vector2(669, 63)
@@ -130,6 +136,7 @@ visible = false
 
 [node name="GameController" parent="." instance=ExtResource("5_mw4mh")]
 
+[editable path="PlayerHand"]
 [editable path="EnemyHand"]
 [editable path="Score"]
 [editable path="Score2"]
