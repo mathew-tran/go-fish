@@ -8,13 +8,14 @@ var DeckOfCards : Array[Card]
 
 func GenerateCards():
 	var data = []
+	var testData = ["ACE", "TWO", "THREE", "FOUR"]
 	for x in Card.VALUE:
 		for y in Card.SUIT:
 			data.append({
 				"Value" : x,
 				"Suit" : y
 			})
-	#data.shuffle()
+	data.shuffle()
 
 	for x in range(0, len(data)):
 		var card = load("res://Prefab/Card.tscn").instantiate() as Card
@@ -31,16 +32,19 @@ func GenerateCards():
 		DeckOfCards.append(card)
 
 func GiveCard(hand : Hand):
-	if len(DeckOfCards) == 0:
+	if IsEmpty():
 		return
-	var card = DeckOfCards[len(DeckOfCards) - 1]
+	var card = DeckOfCards.pop_back()
 	await card.MoveToPosition(hand.GetHandGainPosition(), .2)
 	hand.GainCard(card)
 	card.bFlaggedToMove = false
 
 
+func IsEmpty():
+	return len(DeckOfCards) == 0
+
 func OnCardMovedOutOfDeck():
-	DeckOfCards.pop_back()
+	pass
 
 func _on_child_order_changed():
 	if is_inside_tree() == false:

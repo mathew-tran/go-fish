@@ -6,22 +6,24 @@
 script = ExtResource("1_aput2")
 
 [node name="StartTimer" type="Timer" parent="."]
-wait_time = 2.0
 one_shot = true
 
 [node name="TellTimer" type="Timer" parent="."]
-wait_time = 2.0
 one_shot = true
 
 [node name="FailTimer" type="Timer" parent="."]
-wait_time = 2.0
 one_shot = true
 
 [node name="TakeTimer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.2
 one_shot = true
 
 [node name="PostMoveTimer" type="Timer" parent="."]
-wait_time = 1.3
+wait_time = 0.6
+one_shot = true
+
+[node name="PostRoundTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
 
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

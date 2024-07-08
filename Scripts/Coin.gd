@@ -13,8 +13,8 @@ func MoveToPosition(newPosition):
 	await tween.finished
 
 func Flip():
-	var flipTimes = 10 + randi() % 10
-	$AnimationPlayer.speed_scale = 3
+	var flipTimes = 5 + randi() % 10
+	$AnimationPlayer.speed_scale = 6
 	while flipTimes > 0:
 		$AnimationPlayer.speed_scale += .5
 		if bIsHeads:

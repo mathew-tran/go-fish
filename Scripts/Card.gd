@@ -29,6 +29,36 @@ enum SUIT {
 	SPADES
 }
 
+static func GetValueString(val : VALUE):
+	if val == VALUE.ACE:
+		return "A"
+	if val == VALUE.TWO:
+		return "2"
+	if val == VALUE.THREE:
+		return "3"
+	if val == VALUE.FOUR:
+		return "4"
+	if val == VALUE.FIVE:
+		return "5"
+	if val == VALUE.SIX:
+		return "6"
+	if val == VALUE.SEVEN:
+		return "7"
+	if val == VALUE.EIGHT:
+		return "8"
+	if val == VALUE.NINE:
+		return "9"
+	if val == VALUE.TEN:
+		return "10"
+	if val == VALUE.JACK:
+		return "J"
+	if val == VALUE.QUEEN:
+		return "Q"
+	if val == VALUE.KING:
+		return "K"
+
+	return str(val) +  "NOT DEFINED"
+
 @export var Value : VALUE
 @export var Suit : SUIT
 
@@ -42,6 +72,7 @@ var FollowSpeed = 3000
 var OriginalZIndex = -1
 var bIsFromDeck = true
 var bFlaggedToMove = false
+var bIsDying = false
 var ContentColor : Color
 
 var HoverTween = null
@@ -172,7 +203,7 @@ func SetEnable(bEnable):
 	$Button.disabled = !bEnable
 
 func CanBeInteracted():
-	return EventManager.CanBeClicked() and $Button.disabled == false
+	return EventManager.CanBeClicked() and $Button.disabled == false and bIsDying == false
 
 func RemoveFromDeck():
 	bIsFromDeck = false
@@ -202,12 +233,14 @@ func _on_control_mouse_entered():
 
 
 
+func TurnOffHighlight():
+	$CardHighlight.visible = false
 
 func _on_control_mouse_exited():
 	if CanBeInteracted() == false:
 		return
 
-	$CardHighlight.visible = false
+	TurnOffHighlight()
 
 	if HoverState == HOVERSTATE.UNPLACED:
 		return
@@ -242,7 +275,7 @@ func _on_button_button_down():
 	OriginalZIndex = z_index
 	z_index = 300
 	bIsDragging = true
-	$CardHighlight.visible = false
+	TurnOffHighlight()
 	EventManager.CardClicked.emit(self)
 
 func SetShowBack(bShow : bool):

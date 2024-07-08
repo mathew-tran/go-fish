@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckn5kcpv77ggw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2il8v"]
+bg_color = Color(0, 0.0156863, 0.239216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="OwnedSet" type="Label"]
+custom_minimum_size = Vector2(60, 0)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_2il8v")
+text = "10"
+horizontal_alignment = 1

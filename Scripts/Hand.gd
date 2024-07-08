@@ -7,6 +7,30 @@ var CardToGain : Card
 @onready var CardPlayArea = $PlayArea
 @export var bIsPlayerHand = false
 
+func GetFirstPrompt():
+	if bIsPlayerHand:
+		return "You go first"
+	else:
+		return "Opponent goes first"
+
+func GetPlayerName():
+	if bIsPlayerHand:
+		return "Player"
+	else:
+		return "Opponent"
+
+func GetPlayerPrompt():
+	if bIsPlayerHand:
+		return "It's your turn"
+	else:
+		return "It's the opponent's turn"
+
+func GetOutOfCardPrompt():
+	if bIsPlayerHand:
+		return "You are out of cards!"
+	else:
+		return "Opponent was out of cards!"
+
 func _ready():
 	EventManager.CardBeginUnclicked.connect(OnCardBeginUnclicked)
 
@@ -41,7 +65,11 @@ func QueryOtherHand(otherHand : Hand, queryValue:  Card.VALUE):
 
 func TakeCardFromHand(card : Card):
 	CardToGain = card
+	card.bIsDragging = false
+	EventManager.bIsHoldingCard = false
 	OnCardBeginUnclicked(card)
+	card.TurnOffHighlight()
+
 
 func ResolveHand(controller : GameController):
 	var cardBuckets = {}
@@ -50,18 +78,21 @@ func ResolveHand(controller : GameController):
 	for card in GetCards():
 		cardBuckets[Card.VALUE.keys()[card.Value]].append(card)
 
+	var index = 0
 	for bucket in cardBuckets.keys():
-		print(len(cardBuckets[bucket]))
+		#print(len(cardBuckets[bucket]))
 		if len(cardBuckets[bucket]) == 4:
-			controller.SetPrompt("Clearing " + bucket + "'s")
+			controller.SetPrompt("Clearing " + Card.GetValueString(Card.VALUE.values()[index]) + "'s")
+			EventManager.ValueCleared.emit(controller.CurrentPlayer, Card.VALUE.values()[index])
 			for card in cardBuckets[bucket]:
+				card.bIsDying = true
 				if bIsPlayerHand:
 					await card.MoveToPosition(controller.PlayerReference.GetCoinPlacementPosition(),.3)
 				else:
 					await card.FlipFacing()
 					await card.MoveToPosition(controller.EnemyReference.GetCoinPlacementPosition(),.3)
 				card.queue_free()
-
+		index += 1
 
 func GetHandGainPosition():
 	return $HandGainPosition.global_position + Vector2(randi_range(-100, 100), randi_range(-100,100))
@@ -93,7 +124,7 @@ func _on_play_area_child_order_changed():
 	if is_inside_tree() == false:
 		return
 
-	var width = 1350
+	var width = 1400
 	var cardAmount = CardPlayArea.get_child_count()
 	var cardWidth = 180
 	var minCardSpacing = 30

@@ -8,15 +8,21 @@ var EnemyReference : Hand
 var PromptReference : PromptArea
 var CoinReference : Coin
 var CoinTossPanelReference : CoinTossPanel
+var EnemyScoreBoard : ScoreBoard
+var PlayerScoreBoard : ScoreBoard
 
 var PlayerChoice : CoinTossPanel.CHOICE
 var EnemyAIReference : EnemyAI
 
-var bIsPlayerFirst = false
-
 var MatchedCards : Array[Card]
 
+var GameSpeed = 1.0
+
+var CurrentPlayer : Hand
+var OtherPlayer : Hand
+
 func _ready():
+	Engine.time_scale = GameSpeed
 	DeckReference = get_tree().get_nodes_in_group("Deck")[0]
 	PlayerReference = get_tree().get_nodes_in_group("Player")[0]
 	EnemyReference = get_tree().get_nodes_in_group("Enemy")[0]
@@ -24,6 +30,12 @@ func _ready():
 	CoinReference = get_tree().get_nodes_in_group("Coin")[0]
 	CoinTossPanelReference = get_tree().get_nodes_in_group("CoinTossPanel")[0]
 	EnemyAIReference = get_tree().get_nodes_in_group("EnemyAI")[0]
+
+	PlayerScoreBoard = get_tree().get_nodes_in_group("PlayerScore")[0]
+	EnemyScoreBoard = get_tree().get_nodes_in_group("EnemyScore")[0]
+
+	PlayerScoreBoard.SetPlayer(PlayerReference)
+	EnemyScoreBoard.SetPlayer(EnemyReference)
 
 	PromptReference.SetText("Deciding who goes first")
 	CoinTossPanelReference.Show()
@@ -36,21 +48,14 @@ func _ready():
 	CoinReference.OnCoinTossed.connect(OnCoinTossed)
 	await CoinReference.Flip()
 
-	bIsPlayerFirst = false
-	if bIsPlayerFirst:
-		SetPrompt("You go first!")
-	else:
-		SetPrompt("Opponent goes first")
+	SetPrompt(CurrentPlayer.GetFirstPrompt())
 
 	$TellTimer.start()
 	await $TellTimer.timeout
 
 	CoinReference.ForceHeads()
 
-	if bIsPlayerFirst == false:
-		await CoinReference.MoveToPosition(EnemyReference.GetCoinPlacementPosition())
-	else:
-		await CoinReference.MoveToPosition(PlayerReference.GetCoinPlacementPosition())
+	await CoinReference.MoveToPosition(CurrentPlayer.GetCoinPlacementPosition())
 
 
 
@@ -63,21 +68,21 @@ func SetPrompt(newText):
 	PromptReference.SetText(newText)
 
 func DeterminePlayersTurn():
-	if bIsPlayerFirst:
-		SetPrompt("Your turn, drag a card here")
-	else:
-		SetPrompt("Waiting for opponent...")
+	CoinReference.MoveToPosition(CurrentPlayer.GetCoinPlacementPosition())
+	EventManager.CurrentPlayerTurnStart.emit(CurrentPlayer)
 
-	if bIsPlayerFirst == false:
-		CoinReference.MoveToPosition(EnemyReference.GetCoinPlacementPosition())
-	else:
-		CoinReference.MoveToPosition(PlayerReference.GetCoinPlacementPosition())
 
 func OnChoiceMade(choice : CoinTossPanel.CHOICE):
 	PlayerChoice = choice
 
 func OnCoinTossed(choice : CoinTossPanel.CHOICE):
-	bIsPlayerFirst = choice == PlayerChoice
+	var result = choice == PlayerChoice
+	if result:
+		CurrentPlayer = PlayerReference
+		OtherPlayer = EnemyReference
+	else:
+		CurrentPlayer = EnemyReference
+		OtherPlayer = PlayerReference
 
 func Setup():
 	PromptReference.SetText("Dealing Cards ...")
@@ -91,62 +96,79 @@ func Setup():
 	EventManager.PlayerMove.connect(OnPlayerMove)
 
 	while IsGameOver() == false:
-		DeterminePlayersTurn()
+		await CurrentPlayer.ResolveHand(self)
 		EnemyAIReference.ClearData()
 		var bIsSuccessful = true
-		while bIsSuccessful:
-			if bIsPlayerFirst:
-				if EnemyReference.HasCards() == false:
-					bIsSuccessful = false
-					break
-				if PlayerReference.HasCards() == false:
-					await DeckReference.GiveCard(PlayerReference)
-				await EventManager.PlayerMove
-			else:
-				if PlayerReference.HasCards() == false:
-					bIsSuccessful = false
-					break
-				if EnemyReference.HasCards() == false:
-					await DeckReference.GiveCard(EnemyReference)
-				EnemyAIReference.DoAI(self)
-				await EventManager.EnemyMove
-				$PostMoveTimer.start()
-				await $PostMoveTimer.timeout
+		while bIsSuccessful and DeckReference.IsEmpty() == false:
+			var bCanPlay = true
+			DeterminePlayersTurn()
 
-			if len(MatchedCards) != 0:
-				SetPrompt("Taking Cards...")
-				for card in MatchedCards:
-					if bIsPlayerFirst:
-						PlayerReference.TakeCardFromHand(card)
-					else:
-						EnemyReference.TakeCardFromHand(card)
-					$TakeTimer.start()
-					await $TakeTimer.timeout
+			if CurrentPlayer.HasCards() == false:
+					SetPrompt(CurrentPlayer.GetOutOfCardPrompt())
+					await DeckReference.GiveCard(CurrentPlayer)
+
+			if OtherPlayer.HasCards() == false:
+				bCanPlay = false
+				SetPrompt(OtherPlayer.GetOutOfCardPrompt())
+
+			if bCanPlay:
+				SetPrompt(CurrentPlayer.GetPlayerPrompt())
+				if CurrentPlayer.bIsPlayerHand:
+					await EventManager.PlayerMove
+				else:
+					EnemyAIReference.DoAI(self)
+					await EventManager.EnemyMove
+					$PostMoveTimer.start()
+					await $PostMoveTimer.timeout
+
+			if bCanPlay:
+				if len(MatchedCards) != 0:
+					SetPrompt("Taking Cards...")
+					for card in MatchedCards:
+						CurrentPlayer.TakeCardFromHand(card)
+						$TakeTimer.start()
+						await $TakeTimer.timeout
+				else:
+					bIsSuccessful = false
+					SetPrompt("No cards were found ...")
+					$FailTimer.start()
+					await $FailTimer.timeout
+					await DeckReference.GiveCard(CurrentPlayer)
 			else:
 				bIsSuccessful = false
-				SetPrompt("No cards were found ...")
-				$FailTimer.start()
-				await $FailTimer.timeout
-				if bIsPlayerFirst:
-					await DeckReference.GiveCard(PlayerReference)
-				else:
-					await DeckReference.GiveCard(EnemyReference)
+			await CurrentPlayer.ResolveHand(self)
 
-			if bIsPlayerFirst:
-				await PlayerReference.ResolveHand(self)
-			else:
-				await EnemyReference.ResolveHand(self)
-		bIsPlayerFirst = !bIsPlayerFirst
+			$PostRoundTimer.start()
+			await $PostRoundTimer.timeout
+		RotatePlayer()
 
+	var PlayerScore = PlayerScoreBoard.GetScore()
+	var EnemyScore = EnemyScoreBoard.GetScore()
+
+	if PlayerScore == EnemyScore:
+		print("TIE")
+		SetPrompt("TIE")
+	elif PlayerScore > EnemyScore:
+		print("YOU WIN")
+		SetPrompt("YOU WIN")
+	else:
+		print("YOU LOSE")
+		SetPrompt("YOU LOSE")
+func RotatePlayer():
+	if CurrentPlayer == PlayerReference:
+		CurrentPlayer = EnemyReference
+		OtherPlayer = PlayerReference
+	else:
+		CurrentPlayer = PlayerReference
+		OtherPlayer = EnemyReference
 func OnEnemyMove(value : Card.VALUE):
 	MatchedCards = EnemyReference.QueryOtherHand(PlayerReference, value)
 
 func OnPlayerMove(value : Card.VALUE):
 	MatchedCards = PlayerReference.QueryOtherHand(EnemyReference, value)
-	SetPrompt("You asked for cards with a value of:" + Card.VALUE.keys()[value])
 
 func IsGameOver():
-	return false
+	return DeckReference.IsEmpty()
 
 func _on_start_timer_timeout():
 	Setup()

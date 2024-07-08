@@ -9,19 +9,21 @@ func ClearData():
 
 func DoAI(controller : GameController):
 
+	$ThinkTimer.wait_time = randf_range(.5, 1.2)
 	$ThinkTimer.start()
 	await $ThinkTimer.timeout
 	controller.SetPrompt("Opponent is thinking ...")
 
 
+	$ActionTimer.wait_time = randf_range(.5, 3.5)
 	$ActionTimer.start()
 	await $ActionTimer.timeout
 	var card = controller.EnemyReference.GetRandomCardFromHand()
 	card.FlipFacing()
 
-	controller.SetPrompt("Opponent is asking for cards with value: " + Card.VALUE.keys()[card.Value])
+	controller.SetPrompt("Opponent is asking for cards with value: " + Card.GetValueString(Card.VALUE.values()[card.Value]))
 
-	$ActionTimer.start()
-	await $ActionTimer.timeout
+	$ShowTimer.start()
+	await $ShowTimer.timeout
 	card.FlipToBack()
 	EventManager.EnemyMove.emit(card.Value)
