@@ -15,7 +15,7 @@ signal CurrentPlayerTurnStart(hand)
 signal ValueCleared(player, rank)
 
 signal OptionButtonPressed
-
+signal GameOver
 
 func _ready():
 	global_position = Vector2.ZERO

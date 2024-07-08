@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://vijp53m17pg2"]
+[gd_scene load_steps=26 format=3 uid="uid://vijp53m17pg2"]
 
 [ext_resource type="PackedScene" uid="uid://em1kgkfbp8u3" path="res://Prefab/Hand.tscn" id="1_homqd"]
 [ext_resource type="PackedScene" uid="uid://bfoen22npcxjj" path="res://Prefab/PromptArea.tscn" id="3_5j707"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://djgmyrcw4m0c3" path="res://Prefab/PlayArea.tscn" id="10_j2c08"]
 [ext_resource type="Texture2D" uid="uid://ccgqsrmld2bp4" path="res://Art/Option_Unhovered.svg" id="10_nmcmb"]
 [ext_resource type="PackedScene" uid="uid://c0c3i4ouqko8x" path="res://Prefab/OptionsMenu.tscn" id="12_5vcqu"]
+[ext_resource type="Script" path="res://Scripts/RestartButton.gd" id="13_5m8jl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgqff"]
 bg_color = Color(0.646954, 0.21918, 0.0863637, 1)
@@ -37,6 +38,23 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eg8sm"]
+skew = Vector2(0.5, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4ped"]
+bg_color = Color(0.751881, 0.751881, 0.751881, 1)
+skew = Vector2(0.5, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7p3la"]
+bg_color = Color(0.404511, 0.404511, 0.404511, 1)
+skew = Vector2(0.5, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07y5d"]
+skew = Vector2(0.5, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbyup"]
+skew = Vector2(0.5, 0)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1kfe6"]
 
@@ -156,7 +174,50 @@ layout_direction = 3
 [node name="Coin" parent="." instance=ExtResource("6_tsq27")]
 position = Vector2(1404, 157)
 
+[node name="CoinTossPanel" parent="." instance=ExtResource("6_piew8")]
+visible = false
+
+[node name="GameController" parent="." instance=ExtResource("5_mw4mh")]
+
+[node name="EnemyAI" parent="." instance=ExtResource("9_2702y")]
+
+[node name="Restart" type="Button" parent="."]
+visible = false
+self_modulate = Color(0.456464, 0.456464, 0.456464, 1)
+custom_minimum_size = Vector2(500, 150)
+offset_left = -276.0
+offset_top = 42.0
+offset_right = 224.0
+offset_bottom = 192.0
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_eg8sm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y4ped")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7p3la")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_07y5d")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mbyup")
+script = ExtResource("13_5m8jl")
+
+[node name="Label" type="Label" parent="Restart"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.5
+offset_top = -68.5
+offset_right = 198.5
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "RESTART"
+
+[node name="OptionsMenu" parent="." instance=ExtResource("12_5vcqu")]
+visible = false
+
 [node name="OptionButton" parent="." instance=ExtResource("8_8swvy")]
+process_mode = 3
 custom_minimum_size = Vector2(100, 100)
 offset_left = 844.0
 offset_top = -525.0
@@ -170,15 +231,7 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_idc2h")
 text = ""
 icon = ExtResource("10_nmcmb")
 
-[node name="CoinTossPanel" parent="." instance=ExtResource("6_piew8")]
-visible = false
-
-[node name="GameController" parent="." instance=ExtResource("5_mw4mh")]
-
-[node name="EnemyAI" parent="." instance=ExtResource("9_2702y")]
-
-[node name="OptionsMenu" parent="." instance=ExtResource("12_5vcqu")]
-visible = false
+[connection signal="button_up" from="Restart" to="Restart" method="_on_button_up"]
 
 [editable path="PlayerHand"]
 [editable path="EnemyHand"]

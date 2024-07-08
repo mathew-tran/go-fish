@@ -155,6 +155,9 @@ func Setup():
 	else:
 		print("YOU LOSE")
 		SetPrompt("YOU LOSE")
+
+	EventManager.GameOver.emit()
+
 func RotatePlayer():
 	if CurrentPlayer == PlayerReference:
 		CurrentPlayer = EnemyReference
