@@ -14,7 +14,7 @@ func GenerateCards():
 				"Value" : x,
 				"Suit" : y
 			})
-	data.shuffle()
+	#data.shuffle()
 
 	for x in range(0, len(data)):
 		var card = load("res://Prefab/Card.tscn").instantiate() as Card
@@ -31,6 +31,8 @@ func GenerateCards():
 		DeckOfCards.append(card)
 
 func GiveCard(hand : Hand):
+	if len(DeckOfCards) == 0:
+		return
 	var card = DeckOfCards[len(DeckOfCards) - 1]
 	await card.MoveToPosition(hand.GetHandGainPosition(), .2)
 	hand.GainCard(card)

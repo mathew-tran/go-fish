@@ -92,7 +92,14 @@ func MoveToPosition(newPos, duration = .05):
 	await tween.finished
 
 func FlipFacing():
-	$AnimationPlayer.play("FlipUp")
+	if bShowBack:
+		$AnimationPlayer.play("FlipUp")
+		await $AnimationPlayer.animation_finished
+
+func FlipToBack():
+	if bShowBack == false:
+		$AnimationPlayer.play_backwards("FlipUp")
+		await $AnimationPlayer.animation_finished
 
 func SetSuitImage():
 	var suitImage : Texture

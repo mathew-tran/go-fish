@@ -15,9 +15,53 @@ func OnCardBeginUnclicked(card: Card):
 		if bIsPlayerHand:
 			CardToGain.FlipFacing()
 			CardToGain.SetEnable(true)
+		else:
+			CardToGain.FlipToBack()
+			CardToGain.SetEnable(false)
 		CardToGain.reparent(CardPlayArea)
 		CardToGain.RemoveFromDeck()
 		CardToGain = null
+
+func GetCards():
+	return $PlayArea.get_children()
+
+func HasCards():
+	return $PlayArea.get_child_count() > 0
+
+func GetRandomCardFromHand():
+	var cards = GetCards()
+	return cards[randi() % len(cards)]
+
+func QueryOtherHand(otherHand : Hand, queryValue:  Card.VALUE):
+	var matchedCards : Array[Card]
+	for card in otherHand.GetCards():
+		if queryValue == card.Value:
+			matchedCards.append(card)
+	return matchedCards
+
+func TakeCardFromHand(card : Card):
+	CardToGain = card
+	OnCardBeginUnclicked(card)
+
+func ResolveHand(controller : GameController):
+	var cardBuckets = {}
+	for value in Card.VALUE:
+		cardBuckets[value] = []
+	for card in GetCards():
+		cardBuckets[Card.VALUE.keys()[card.Value]].append(card)
+
+	for bucket in cardBuckets.keys():
+		print(len(cardBuckets[bucket]))
+		if len(cardBuckets[bucket]) == 4:
+			controller.SetPrompt("Clearing " + bucket + "'s")
+			for card in cardBuckets[bucket]:
+				if bIsPlayerHand:
+					await card.MoveToPosition(controller.PlayerReference.GetCoinPlacementPosition(),.3)
+				else:
+					await card.FlipFacing()
+					await card.MoveToPosition(controller.EnemyReference.GetCoinPlacementPosition(),.3)
+				card.queue_free()
+
 
 func GetHandGainPosition():
 	return $HandGainPosition.global_position + Vector2(randi_range(-100, 100), randi_range(-100,100))

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://yubuwmlyuuxr"]
+
+[ext_resource type="Script" path="res://Scripts/EnemyAI.gd" id="1_prd1p"]
+
+[node name="EnemyAI" type="Node" groups=["EnemyAI"]]
+script = ExtResource("1_prd1p")
+
+[node name="ThinkTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ActionTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true

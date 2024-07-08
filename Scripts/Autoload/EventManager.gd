@@ -8,6 +8,9 @@ var bIsHoldingCard = false
 
 var LastCollidedCard = null
 
+signal PlayerMove(rank)
+signal EnemyMove(rank)
+
 func _ready():
 	global_position = Vector2.ZERO
 	CardClicked.connect(OnCardClicked)
