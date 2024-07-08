@@ -31,6 +31,12 @@ func GetOutOfCardPrompt():
 	else:
 		return "Opponent was out of cards!"
 
+func GetUnsuccessfulPrompt():
+	if bIsPlayerHand:
+		return "Opponent didn't have the card"
+	else:
+		return "You didn't have the card"
+
 func _ready():
 	EventManager.CardBeginUnclicked.connect(OnCardBeginUnclicked)
 

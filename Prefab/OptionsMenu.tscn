@@ -1,0 +1,115 @@
+[gd_scene load_steps=8 format=3 uid="uid://c0c3i4ouqko8x"]
+
+[ext_resource type="Script" path="res://Scripts/OptionsMenu.gd" id="1_yxv2l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_74c05"]
+bg_color = Color(0.0392157, 0.0392157, 0.0392157, 0.968627)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_moora"]
+skew = Vector2(0.5, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wphdw"]
+bg_color = Color(0.751881, 0.751881, 0.751881, 1)
+skew = Vector2(0.5, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_onc7p"]
+bg_color = Color(0.404511, 0.404511, 0.404511, 1)
+skew = Vector2(0.5, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4aw8"]
+skew = Vector2(0.5, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iog3v"]
+skew = Vector2(0.5, 0)
+
+[node name="OptionsMenu" type="Panel"]
+process_mode = 3
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_74c05")
+script = ExtResource("1_yxv2l")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(800, 800)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -400.0
+offset_right = 400.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resume" type="Button" parent="VBoxContainer"]
+self_modulate = Color(0.43116, 0.430592, 0.949764, 1)
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_moora")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wphdw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_onc7p")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_x4aw8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_iog3v")
+
+[node name="Label" type="Label" parent="VBoxContainer/Resume"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -11.5
+offset_right = 32.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "RESUME"
+
+[node name="Restart" type="Button" parent="VBoxContainer"]
+self_modulate = Color(0.43116, 0.430592, 0.949764, 1)
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_moora")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wphdw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_onc7p")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_x4aw8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_iog3v")
+
+[node name="Label" type="Label" parent="VBoxContainer/Restart"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.5
+offset_top = -68.5
+offset_right = 198.5
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "RESTART"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="button_up" from="VBoxContainer/Resume" to="." method="_on_resume_button_up"]
+[connection signal="button_up" from="VBoxContainer/Restart" to="." method="_on_restart_button_up"]

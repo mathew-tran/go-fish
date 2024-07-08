@@ -50,7 +50,7 @@ theme_override_constants/separation = 60
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 200
-text = "CHOOSE"
+text = "Choose"
 horizontal_alignment = 1
 vertical_alignment = 1
 

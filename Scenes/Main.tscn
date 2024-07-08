@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://vijp53m17pg2"]
+[gd_scene load_steps=20 format=3 uid="uid://vijp53m17pg2"]
 
 [ext_resource type="PackedScene" uid="uid://em1kgkfbp8u3" path="res://Prefab/Hand.tscn" id="1_homqd"]
 [ext_resource type="PackedScene" uid="uid://bfoen22npcxjj" path="res://Prefab/PromptArea.tscn" id="3_5j707"]
@@ -7,9 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://0k75duvxprnl" path="res://Prefab/GameController.tscn" id="5_mw4mh"]
 [ext_resource type="PackedScene" uid="uid://bji1wjjrmmarp" path="res://Prefab/CoinTossPanel.tscn" id="6_piew8"]
 [ext_resource type="PackedScene" uid="uid://by5r1p6t6r5b" path="res://Prefab/Coin.tscn" id="6_tsq27"]
-[ext_resource type="PackedScene" uid="uid://dpppqqfdgvt2r" path="res://Prefab/ResetButton.tscn" id="8_8swvy"]
+[ext_resource type="PackedScene" uid="uid://dpppqqfdgvt2r" path="res://Prefab/OptionButton.tscn" id="8_8swvy"]
 [ext_resource type="PackedScene" uid="uid://yubuwmlyuuxr" path="res://Prefab/EnemyAI.tscn" id="9_2702y"]
 [ext_resource type="PackedScene" uid="uid://djgmyrcw4m0c3" path="res://Prefab/PlayArea.tscn" id="10_j2c08"]
+[ext_resource type="Texture2D" uid="uid://ccgqsrmld2bp4" path="res://Art/Option_Unhovered.svg" id="10_nmcmb"]
+[ext_resource type="PackedScene" uid="uid://c0c3i4ouqko8x" path="res://Prefab/OptionsMenu.tscn" id="12_5vcqu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgqff"]
 bg_color = Color(0.646954, 0.21918, 0.0863637, 1)
@@ -35,6 +37,16 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1kfe6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0wrge"]
+texture = ExtResource("10_nmcmb")
+modulate_color = Color(0.394987, 0.394987, 0.394987, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p48hh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_idc2h"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(298, 942)
@@ -64,14 +76,14 @@ grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_di024")
 
 [node name="PlayerHand" parent="." groups=["Player"] instance=ExtResource("1_homqd")]
-position = Vector2(-65, 501)
+position = Vector2(-21, 501)
 bIsPlayerHand = true
 
 [node name="CoinPlacementPosition" parent="PlayerHand" index="4"]
-position = Vector2(811, -112)
+position = Vector2(774, -111)
 
 [node name="EnemyHand" parent="." groups=["Enemy"] instance=ExtResource("1_homqd")]
-position = Vector2(270, -325)
+position = Vector2(186, -325)
 
 [node name="Marker2D" parent="EnemyHand" index="2"]
 position = Vector2(429, -146)
@@ -80,7 +92,7 @@ position = Vector2(429, -146)
 position = Vector2(-199, 196)
 
 [node name="CoinPlacementPosition" parent="EnemyHand" index="4"]
-position = Vector2(-1042, -68)
+position = Vector2(-981, -89)
 
 [node name="PlayArea" parent="." instance=ExtResource("10_j2c08")]
 
@@ -144,14 +156,29 @@ layout_direction = 3
 [node name="Coin" parent="." instance=ExtResource("6_tsq27")]
 position = Vector2(1404, 157)
 
+[node name="OptionButton" parent="." instance=ExtResource("8_8swvy")]
+custom_minimum_size = Vector2(100, 100)
+offset_left = 844.0
+offset_top = -525.0
+offset_right = 1048.0
+offset_bottom = -321.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/normal = SubResource("StyleBoxTexture_1kfe6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0wrge")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_p48hh")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_idc2h")
+text = ""
+icon = ExtResource("10_nmcmb")
+
 [node name="CoinTossPanel" parent="." instance=ExtResource("6_piew8")]
 visible = false
 
 [node name="GameController" parent="." instance=ExtResource("5_mw4mh")]
 
-[node name="ResetButton" parent="." instance=ExtResource("8_8swvy")]
-
 [node name="EnemyAI" parent="." instance=ExtResource("9_2702y")]
+
+[node name="OptionsMenu" parent="." instance=ExtResource("12_5vcqu")]
+visible = false
 
 [editable path="PlayerHand"]
 [editable path="EnemyHand"]

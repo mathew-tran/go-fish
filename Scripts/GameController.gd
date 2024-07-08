@@ -130,9 +130,10 @@ func Setup():
 						await $TakeTimer.timeout
 				else:
 					bIsSuccessful = false
-					SetPrompt("No cards were found ...")
+					SetPrompt(CurrentPlayer.GetUnsuccessfulPrompt())
 					$FailTimer.start()
 					await $FailTimer.timeout
+					SetPrompt("Go fish")
 					await DeckReference.GiveCard(CurrentPlayer)
 			else:
 				bIsSuccessful = false

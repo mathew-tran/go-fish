@@ -14,6 +14,9 @@ signal EnemyMove(rank)
 signal CurrentPlayerTurnStart(hand)
 signal ValueCleared(player, rank)
 
+signal OptionButtonPressed
+
+
 func _ready():
 	global_position = Vector2.ZERO
 	CardClicked.connect(OnCardClicked)
