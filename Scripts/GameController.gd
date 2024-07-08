@@ -68,7 +68,7 @@ func SetPrompt(newText):
 	PromptReference.SetText(newText)
 
 func DeterminePlayersTurn():
-	CoinReference.MoveToPosition(CurrentPlayer.GetCoinPlacementPosition())
+	await CoinReference.MoveToPosition(CurrentPlayer.GetCoinPlacementPosition())
 	EventManager.CurrentPlayerTurnStart.emit(CurrentPlayer)
 
 
@@ -101,7 +101,7 @@ func Setup():
 		var bIsSuccessful = true
 		while bIsSuccessful and DeckReference.IsEmpty() == false:
 			var bCanPlay = true
-			DeterminePlayersTurn()
+			await DeterminePlayersTurn()
 
 			if CurrentPlayer.HasCards() == false:
 					SetPrompt(CurrentPlayer.GetOutOfCardPrompt())
